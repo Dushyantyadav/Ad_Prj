@@ -35,6 +35,7 @@
       <form name="Registration" action="" method="post">
         
         <div class="login">
+          <input class="form-control" type="text" name="pt_id" placeholder="Patient's ID" required=""> <br>
           <input class="form-control" type="text" name="pt_fst_name" placeholder="Patient's First Name" required=""> <br>
           <input class="form-control" type="text" name="pt_lst_name" placeholder="Patient's Last Name" required=""> <br>
           <input class="form-control" type="text" name="pt_house_no" placeholder="House number" required=""> <br>
@@ -42,7 +43,7 @@
           <input class="form-control" type="text" name="pt_city" placeholder="City" required=""><br>
           <input class="form-control" type="text" name="pt_zipcode" placeholder="Zipcode" required=""><br>
           <input class="form-control" type="text" name="pt_ph_no" placeholder="Phone Number" required=""><br>
-          <input class="form-control" type="text" name="pt_b_date" placeholder="Date of birth" required=""><br>
+          <input class="form-control" type="text" name="pt_b_date" placeholder="Birthday" required=""><br>
           <input class="form-control" type="text" name="pt_race" placeholder="Patient's race" required=""><br>
           <input class="form-control" type="text" name="pt_mar_stat" placeholder="Marital Status" required=""><br>
           <input class="form-control" type="text" name="pt_gen" placeholder="Gender" required=""><br>
@@ -63,22 +64,20 @@
       {
         $count=0;
 
-        #$sql="SELECT pt_id from `ad_patient`";
-        #$res=mysqli_query($db,$sql);
+        $sql="SELECT pt_id from `ad_patient`";
+        $res=mysqli_query($db,$sql);
 
-        #while($row=mysqli_fetch_assoc($res))
-        #while(1)
-        #{
-          #if($row['pt_id']==$_POST['pt_id'])
-         # {
-            #$count=$count+1;
-          #}
-        #}
+        while($row=mysqli_fetch_assoc($res))
+        {
+          if($row['pt_id']==$_POST['pt_id'])
+          {
+            $count=$count+1;
+          }
+        }
         if($count==0)
         {
-          $stmt = $db->prepare("INSERT INTO ad_patient (pt_fst_name, pt_lst_name, pt_house_no, pt_street, pt_city, pt_zipcode, pt_ph_no, pt_b_date,pt_race,pt_mar_stat,pt_gen,pt_bld_grp,pt_type) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-          $stmt->bind_param("ssisssissssss",$_POST['pt_fst_name'], $_POST['pt_lst_name'], $_POST['pt_house_no'], $_POST['pt_street'],$_POST['pt_city'], $_POST['pt_zipcode'], $_POST['pt_ph_no'],$_POST['pt_b_date'],$_POST['pt_race'], $_POST['pt_mar_stat'], $_POST['pt_gen'], $_POST['pt_bld_grp'], $_POST['pt_type']);
-          
+          $stmt = $db->prepare("INSERT INTO ad_patient(pt_id, pt_fst_name, pt_lst_name, pt_house_no, pt_street, pt_city, pt_zipcode, pt_ph_no,pt_b_date, pt_race, pt_mar_stat,pt_gen, pt_bld_grp, pt_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+          $stmt->bind_param("ississsissssss",$_POST['pt_id'], $_POST['pt_fst_name'], $_POST['pt_lst_name'], $_POST['pt_house_no'], $_POST['pt_street'], $_POST['pt_city'], $_POST['pt_zipcode'], $_POST['pt_ph_no'], $_POST['pt_b_date'], $_POST['pt_race'], $_POST['pt_mar_stat'], $_POST['pt_gen'], $_POST['pt_bld_grp'], $_POST['pt_type']);
           $result = $stmt->execute();
           if($result){
           echo "New records created successfully";

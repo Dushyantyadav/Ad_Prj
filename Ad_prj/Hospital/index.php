@@ -31,9 +31,10 @@
 	<div class="wrapper">
 		<header>
 		<div class="logo">
-			<img src="images/ii.jpg">
-			<h1 style="color: white;">READ THINK AND LEARN LIBRARY</h1>
+			<img src="images/hi.png">
+			<h1 style="color: white;">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp We Offer Wellness Hospital</h1>
 		</div>
+		
 
 		<?php
 		if(isset($_SESSION['login_user']))
@@ -43,11 +44,12 @@
 					<ul>
 						<li><a href="index.php">HOME</a></li>
 						<li><a href="books.php">BOOKS</a></li>
+
 						<li><a href="feedback.php">FEEDBACK</a></li>
-						<li><a href="events.php">EVENTS</a></li>
-						<li><a href="sponsor.php">SPONSORS</a></li>
+						<li><a href="topics.php">TOPICS</a></li>
+						<li><a href="rooms.php">ROOMS</a></li>
 						<li><a href="profile.php">PROFILE</a></li>
-						<li><a href="logout.php">LOGOUT</a></li>
+						<li><a href="logout.php">LOGOUT</a></li>						
 					</ul>
 				</nav>
 			<?php
@@ -58,8 +60,8 @@
 						<nav>
 							<ul>
 								<li><a href="index.php">HOME</a></li>
-								<li><a href="books.php">BOOKS</a></li>
-								<li><a href="author_login.php">LOGIN</a></li>
+								<li><a href="books.php">SERVICES</a></li>
+								<li><a href="student_login.php">LOGIN</a></li>
 								<li><a href="registration.php">SIGN-UP</a></li>
 								<li><a href="feedback.php">FEEDBACK</a></li>
 							</ul>
@@ -69,20 +71,19 @@
 			
 		?>
 
-			
+		
 		</header>
 		<section>
 		<div class="sec_img">
 			<br><br><br>
-			<div class="box">
+			<!--<div class="box">
 				<br><br><br><br>
-				<h1 style="text-align: center; font-size: 35px;">Welcome to library</h1><br><br>
-				<h1 style="text-align: center;font-size: 25px;">Opening at: 09:00 AM </h1><br>
-				<h1 style="text-align: center;font-size: 25px;">Closing at: 11:00 PM</h1><br>
-			</div>
+				<h1 style="text-align: center; font-size: 35px;">Welcome to our hospital</h1><br><br>
+				<h1 style="text-align: center;font-size: 25px;">Open 24 x 7 </h1><br>
+			</div> -->
 		</div>
 		</section>
-		
+	
 
 	</div>
 	<?php  

@@ -7,7 +7,7 @@
 <html>
 <head>
 
-  <title>Customer Registration</title>
+  <title>Hospital Registration</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,24 +29,24 @@
   <div class="reg_img">
 
     <div class="box2">
-        <h1 style="text-align: center; font-size: 20px;font-family: Lucida Console;"> Welcome to Author Registration</h1>
+        <h1 style="text-align: center; font-size: 20px;font-family: Lucida Console;"> Welcome to Hospital Registration</h1>
         <h1 style="text-align: center; font-size: 15px;">Fill the details Below</h1>
 
       <form name="Registration" action="" method="post">
         
         <div class="login">
-          <input class="form-control" type="text" name="at_id" placeholder="Author ID" required=""> <br>
-          <input class="form-control" type="text" name="afname" placeholder="First Name" required=""> <br>
-          <input class="form-control" type="text" name="alname" placeholder="Last Name" required=""> <br>
-          <input class="form-control" type="text" name="h_no" placeholder="Hhouse Number" required=""><br>
-          <input class="form-control" type="text" name="street" placeholder="Street Name" required=""><br>
+          <input class="form-control" type="text" name="hsp_id" placeholder="Hospital ID" required=""> <br>
+          <input class="form-control" type="text" name="name" placeholder="Hospital Name" required=""> <br>
+          <input class="form-control" type="text" name="street" placeholder="Street" required=""> <br>
           <input class="form-control" type="text" name="city" placeholder="City" required=""><br>
           <input class="form-control" type="text" name="state" placeholder="State" required=""><br>
-          <input class="form-control" type="text" name="cntry" placeholder="Country" required=""><br>
-		  <input class="form-control" type="text" name="z_code" placeholder="Zip Code" required=""><br>
-		  <input class="form-control" type="text" name="email" placeholder="Email" required=""><br>
-
+          <input class="form-control" type="text" name="zipcode" placeholder="Zipcode" required=""><br>
+          <input class="form-control" type="text" name="specialty" placeholder="Specialty" required=""><br>
+          <input class="form-control" type="text" name="er_number" placeholder="Emergency number" required=""><br>
+		      <input class="form-control" type="text" name="gn_enq_ph_no" placeholder="General Enquiry number" required=""><br>
+		      <input class="form-control" type="text" name="r_adm_ph_no" placeholder="Admin phone number" required=""><br>
           
+      
           <input class="btn btn-default" type="submit" name="submit" value="Sign Up" style="color: black; width: 70px; height: 30px"> </div>
       </form>
      
@@ -60,20 +60,20 @@
       {
         $count=0;
 
-        $sql="SELECT at_id from `author`";
+        $sql="SELECT hsp_id from `ad_hospital`";
         $res=mysqli_query($db,$sql);
 
         while($row=mysqli_fetch_assoc($res))
         {
-          if($row['at_id']==$_POST['at_id'])
+          if($row['hsp_id']==$_POST['hsp_id'])
           {
             $count=$count+1;
           }
         }
         if($count==0)
         {
-          $stmt = $db->prepare("INSERT INTO author (at_id, afname, alname, h_no, street, city, state, cntry, z_code, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?)");
-          $stmt->bind_param("isssssssss",$_POST['at_id'], $_POST['afname'], $_POST['alname'], $_POST['h_no'], $_POST['street'], $_POST['city'], $_POST['state'], $_POST['cntry'], $_POST['z_code'], $_POST['email']);
+          $stmt = $db->prepare("INSERT INTO ad_hospital (hsp_id, name, street, city, state, zipcode, specialty, er_number, gn_enq_ph_no, r_adm_ph_no) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?)");
+          $stmt->bind_param("issssssiii",$_POST['hsp_id'], $_POST['name'], $_POST['street'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['specialty'], $_POST['er_number'], $_POST['gn_enq_ph_no'], $_POST['r_adm_ph_no']);
           
           $result = $stmt->execute();
           if($result){

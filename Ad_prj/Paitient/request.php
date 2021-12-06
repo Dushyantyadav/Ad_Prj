@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Book Request</title>
+	<title>Invoice Generation Request</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<style type="text/css">
@@ -130,12 +130,12 @@
 		{
 			//$q=mysqli_query($db,"SELECT * from rental where cust_id='$_SESSION[login_user]' ;");
 			//echo "<h1>" . implode(" ",$_SESSION) . "</h1>";
-			$p=mysqli_query($db,"INSERT INTO rental(ren_stat,br_date,e_ret_d,cust_id,copy_id) values ('Borrowed',sysdate(),sysdate()+15,'$_SESSION[login_user]',(select copy_id from copies where book_id='$_SESSION[book_id]'));") or die(mysqli_error($db));
-			$q=mysqli_query($db,"SELECT * from rental where cust_id='$_SESSION[login_user]' ;"); 
-			$r = mysqli_fetch_assoc(mysqli_query($db,"SELECT ren_id from rental where cust_id='$_SESSION[login_user]' ORDER BY ren_id DESC LIMIT 1 ;"));
-			$inserted_id = $r['ren_id'];
-			$amt=15*0.2;
-			$r=mysqli_query($db,"INSERT INTO invoice(inv_date,inv_amt,ren_id) values (sysdate(),$amt, '$inserted_id');") or die(mysqli_error($db));
+			$p=mysqli_query($db,"INSERT INTO ad_invoice (inv_date, lab_cost,pres_cost,sur_cost,bed_cost,total_cost,bill_ins,cost_pat,reg_no) values (sysdate(),(select TIMESTAMPDIFF(SECOND,(select tbl_last_dt from ad_patient ORDER BY tbl_last_dt DESC LIMIT 1),sysdate()))*15,(select TIMESTAMPDIFF(SECOND,(select tbl_last_dt from ad_patient ORDER BY tbl_last_dt DESC LIMIT 1),sysdate()))*5,(select TIMESTAMPDIFF(SECOND,(select tbl_last_dt from ad_patient ORDER BY tbl_last_dt DESC LIMIT 1),sysdate()))*2,(select TIMESTAMPDIFF(SECOND,(select tbl_last_dt from ad_patient ORDER BY tbl_last_dt DESC LIMIT 1),sysdate()))*6,(select TIMESTAMPDIFF(SECOND,(select tbl_last_dt from ad_patient ORDER BY tbl_last_dt DESC LIMIT 1),sysdate()))*1,(select TIMESTAMPDIFF(SECOND,(select tbl_last_dt from ad_patient ORDER BY tbl_last_dt DESC LIMIT 1),sysdate()))*12,(select TIMESTAMPDIFF(SECOND,(select tbl_last_dt from ad_patient ORDER BY tbl_last_dt DESC LIMIT 1),sysdate()))*11,999);") or die(mysqli_error($db));
+			$q=mysqli_query($db,"SELECT * from ad_invoice;"); 
+			#$r = mysqli_fetch_assoc(mysqli_query($db,"SELECT inv_num from ad_invoice where pt_id='$_SESSION[login_user]' ORDER BY inv_num DESC LIMIT 1 ;"));
+			#$inserted_id = $r['ren_id'];
+			#$amt=15*0.2;
+			#$r=mysqli_query($db,"INSERT INTO invoice(inv_date,inv_amt,ren_id) values (sysdate(),$amt, '$inserted_id');") or die(mysqli_error($db));
 			//echo "<h1>".$p."</h1>";
 			if(mysqli_num_rows($q)==0)
 			{
@@ -147,22 +147,32 @@
 			echo "<tr style='background-color: #6db6b9e6;'>";
 				//Table header
 				
-				echo "<th>"; echo "Rental-ID";  echo "</th>";
-				echo "<th>"; echo "Copy-ID";  echo "</th>";
-				echo "<th>"; echo "Approve Status";  echo "</th>";
-				echo "<th>"; echo "Issue Date";  echo "</th>";
-				echo "<th>"; echo "Return Date";  echo "</th>";
+				echo "<th>"; echo "Invoice number";  echo "</th>";
+				echo "<th>"; echo "Invoice generated date";  echo "</th>";
+				echo "<th>"; echo "Lab expenses";  echo "</th>";
+				echo "<th>"; echo "Prescription expenses";  echo "</th>";
+				echo "<th>"; echo "Surgery cost";  echo "</th>";
+				echo "<th>"; echo "Bed expenses";  echo "</th>";
+				echo "<th>"; echo "Total cost";  echo "</th>";
+				echo "<th>"; echo "Insurance Amount";  echo "</th>";
+				echo "<th>"; echo "Net Bill for Patient";  echo "</th>";
+				echo "<th>"; echo "Registration number";  echo "</th>";
 				
 			echo "</tr>";	
 
 			while($row=mysqli_fetch_assoc($q))
 			{
 				echo "<tr>";
-				echo "<td>"; echo $row['ren_id']; echo "</td>";
-				echo "<td>"; echo $row['copy_id']; echo "</td>";
-				echo "<td>"; echo $row['ren_stat']; echo "</td>";
-				echo "<td>"; echo $row['br_date']; echo "</td>";
-				echo "<td>"; echo $row['e_ret_d']; echo "</td>";
+				echo "<td>"; echo $row['inv_num']; echo "</td>";
+				echo "<td>"; echo $row['inv_date']; echo "</td>";
+				echo "<td>"; echo $row['lab_cost']; echo "</td>";
+				echo "<td>"; echo $row['pres_cost']; echo "</td>";
+				echo "<td>"; echo $row['sur_cost']; echo "</td>";
+				echo "<td>"; echo $row['bed_cost']; echo "</td>";
+				echo "<td>"; echo $row['total_cost']; echo "</td>";
+				echo "<td>"; echo $row['bill_ins']; echo "</td>";
+				echo "<td>"; echo $row['cost_pat']; echo "</td>";
+				echo "<td>"; echo $row['reg_no']; echo "</td>";
 				
 				echo "</tr>";
 			}

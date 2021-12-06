@@ -139,9 +139,8 @@ function closeNav() {
 	<div class="srch">
 		<form class="navbar-form" method="post" name="form1">
 			
-				<input class="form-control" type="text" name="book_id" placeholder="Enter Doctor ID" required="">
-				<button style="background-color: #6db6b9e6;" type="submit" name="submit1" class="btn btn-default">Request
-				</button>
+				<input class="form-control" type="text" name="book_id" placeholder="Enter treatment ID" required="">
+				<button style="background-color: #6db6b9e6;" type="submit" name="submit1" class="btn btn-default">Generate Invoice				</button>
 		</form>
 	</div>
 
@@ -230,7 +229,7 @@ function closeNav() {
 				//mysqli_query($db,)
 				//mysqli_query($db,"INSERT INTO rental(ren_stat,br_date,e_ret_d,cust_id) values('Borrowed',sysdate,sysdate+15,'$_SESSION['login_user']');");
 				//mysqli_query($db,"INSERT INTO rental(ren_stat,br_date,e_ret_d,cust_id,copy_id) values ('Borrowed',sysdate(),sysdate()+15,'$_SESSION['login_user']',(select copy_id from copies where book_id='$_POST[search]'));");
-				$_SESSION['book_id'] = $_POST['book_id'];
+				$_SESSION['trt_id'] = $_POST['trt_id'];
 				var_dump($_POST);
 				?>
 					<script type="text/javascript">

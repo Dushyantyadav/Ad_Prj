@@ -65,43 +65,106 @@
 	 						echo "<b> Last name: </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['pt_last_name'];
+	 						echo $row['pt_lst_name'];
 	 					echo "</td>";
 	 				echo "</tr>";
 					
 					echo "<tr>";
 	 					echo "<td>";
-	 						echo "<b> Phone Number: </b>";
+	 						echo "<b> Apt/House Number: </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['ph_num'];
+	 						echo $row['pt_house_no'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+					 echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Street: </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['pt_street'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+					 echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> City: </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['pt_city'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+					 echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Zipcode: </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['pt_zipcode'];
 	 					echo "</td>";
 	 				echo "</tr>";
 
 	 				echo "<tr>";
 	 					echo "<td>";
-	 						echo "<b> email </b>";
+	 						echo "<b> Phone </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['email'];
+	 						echo $row['pt_ph_no'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+					 echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Date of Birth </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['pt_b_date'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+					 echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Race </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['pt_race'];
 	 					echo "</td>";
 	 				echo "</tr>";
 
 	 				echo "<tr>";
 	 					echo "<td>";
-	 						echo "<b> ID Type: </b>";	
+	 						echo "<b> Marital Status </b>";	
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['id_type'];
+	 						echo $row['pt_mar_stat'];
 	 					echo "</td>";
 	 				echo "</tr>";
 
 	 				echo "<tr>";
 	 					echo "<td>";
-	 						echo "<b> ID NUmber: </b>";
+	 						echo "<b> Gender </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['id_num'];
+	 						echo $row['pt_gen'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+				    echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Blood Group </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['pt_bld_grp'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+					echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Patient Type </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['pt_type'];
 	 					echo "</td>";
 	 				echo "</tr>";
 

@@ -34,6 +34,7 @@
 			<img src="images/hi.png">
 			<h1 style="color: white;">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp We Offer Wellness Hospital</h1>
 		</div>
+		
 
 		<?php
 		if(isset($_SESSION['login_user']))
@@ -59,7 +60,7 @@
 						<nav>
 							<ul>
 								<li><a href="index.php">HOME</a></li>
-								<li><a href="books.php">BOOKS</a></li>
+								<li><a href="books.php">SERVICES</a></li>
 								<li><a href="student_login.php">LOGIN</a></li>
 								<li><a href="registration.php">SIGN-UP</a></li>
 								<li><a href="feedback.php">FEEDBACK</a></li>
@@ -70,19 +71,19 @@
 			
 		?>
 
-			
+		
 		</header>
 		<section>
 		<div class="sec_img">
 			<br><br><br>
-			<div class="box">
+			<!--<div class="box">
 				<br><br><br><br>
 				<h1 style="text-align: center; font-size: 35px;">Welcome to our hospital</h1><br><br>
 				<h1 style="text-align: center;font-size: 25px;">Open 24 x 7 </h1><br>
-			</div>
+			</div> -->
 		</div>
 		</section>
-		
+	
 
 	</div>
 	<?php  

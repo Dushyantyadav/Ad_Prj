@@ -29,19 +29,25 @@
   <div class="reg_img">
 
     <div class="box2">
-        <h1 style="text-align: center; font-size: 35px;font-family: Lucida Console;"> &nbsp &nbsp &nbsp  Library Management System</h1>
-        <h1 style="text-align: center; font-size: 25px;">User Registration Form</h1>
+        <h1 style="text-align: center; font-size: 35px;font-family: Lucida Console;"> Patient Registration </h1>
+        <h1 style="text-align: center; font-size: 25px;">Patient Registration Form</h1>
 
       <form name="Registration" action="" method="post">
         
         <div class="login">
-          <input class="form-control" type="text" name="cust_id" placeholder="Customer ID" required=""> <br>
-          <input class="form-control" type="text" name="cfname" placeholder="First Name" required=""> <br>
-          <input class="form-control" type="text" name="clname" placeholder="Last Name" required=""> <br>
-          <input class="form-control" type="text" name="email" placeholder="Email" required=""><br>
-          <input class="form-control" type="text" name="ph_num" placeholder="Phone No" required=""><br>
-          <input class="form-control" type="text" name="id_type" placeholder="ID Type" required=""><br>
-          <input class="form-control" type="text" name="id_num" placeholder="ID Number" required=""><br>
+          <input class="form-control" type="text" name="cfname" placeholder="Patient's First Name" required=""> <br>
+          <input class="form-control" type="text" name="cfname" placeholder="Patient's Last Name" required=""> <br>
+          <input class="form-control" type="text" name="clname" placeholder="House number" required=""> <br>
+          <input class="form-control" type="text" name="email" placeholder="Street" required=""><br>
+          <input class="form-control" type="text" name="email" placeholder="City" required=""><br>
+          <input class="form-control" type="text" name="email" placeholder="Zipcode" required=""><br>
+          <input class="form-control" type="text" name="email" placeholder="Phone Number" required=""><br>
+          <input class="form-control" type="text" name="email" placeholder="Date of birth" required=""><br>
+          <input class="form-control" type="text" name="email" placeholder="Patient's race" required=""><br>
+          <input class="form-control" type="text" name="email" placeholder="Marital Status" required=""><br>
+          <input class="form-control" type="text" name="email" placeholder="Gender" required=""><br>
+          <input class="form-control" type="text" name="ph_num" placeholder="Blood Group" required=""><br>
+          <input class="form-control" type="text" name="id_type" placeholder="Type" required=""><br>
 
           
           <input class="btn btn-default" type="submit" name="submit" value="Sign Up" style="color: black; width: 70px; height: 30px"> </div>

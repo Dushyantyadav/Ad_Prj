@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Book Request</title>
+	<title>Invoice Generation Request</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<style type="text/css">
@@ -130,7 +130,7 @@
 		{
 			//$q=mysqli_query($db,"SELECT * from rental where cust_id='$_SESSION[login_user]' ;");
 			//echo "<h1>" . implode(" ",$_SESSION) . "</h1>";
-			$p=mysqli_query($db,"INSERT INTO rental(ren_stat,br_date,e_ret_d,cust_id,copy_id) values ('Borrowed',sysdate(),sysdate()+15,'$_SESSION[login_user]',(select copy_id from copies where book_id='$_SESSION[book_id]'));") or die(mysqli_error($db));
+			$p=mysqli_query($db,"INSERT INTO ad_invoice (inv_date, lab_cost,pres_cost,sur_cost,bed_cost,total_cost,bill_ins,cost_pat,reg_no) values (sysdate(),(select TIMESTAMPDIFF(SECOND,(select tbl_last_dt from ad_patient ORDER BY tbl_last_dt DESC LIMIT 1),sysdate()))*15,(select TIMESTAMPDIFF(SECOND,(select tbl_last_dt from ad_patient ORDER BY tbl_last_dt DESC LIMIT 1),sysdate()))*15,(select TIMESTAMPDIFF(SECOND,(select tbl_last_dt from ad_patient ORDER BY tbl_last_dt DESC LIMIT 1),sysdate()))*15,(select TIMESTAMPDIFF(SECOND,(select tbl_last_dt from ad_patient ORDER BY tbl_last_dt DESC LIMIT 1),sysdate()))*15,(select TIMESTAMPDIFF(SECOND,(select tbl_last_dt from ad_patient ORDER BY tbl_last_dt DESC LIMIT 1),sysdate()))*15,(select TIMESTAMPDIFF(SECOND,(select tbl_last_dt from ad_patient ORDER BY tbl_last_dt DESC LIMIT 1),sysdate()))*15,(select TIMESTAMPDIFF(SECOND,(select tbl_last_dt from ad_patient ORDER BY tbl_last_dt DESC LIMIT 1),sysdate()))*15,999);") or die(mysqli_error($db));
 			$q=mysqli_query($db,"SELECT * from rental where cust_id='$_SESSION[login_user]' ;"); 
 			$r = mysqli_fetch_assoc(mysqli_query($db,"SELECT ren_id from rental where cust_id='$_SESSION[login_user]' ORDER BY ren_id DESC LIMIT 1 ;"));
 			$inserted_id = $r['ren_id'];

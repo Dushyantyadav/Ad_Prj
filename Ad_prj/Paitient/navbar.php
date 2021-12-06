@@ -20,14 +20,14 @@
 	    <nav class="navbar navbar-inverse" style="background-color: black;">
       <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand active">READ THINK AND LEARN LIBRARY</a>
+            <a class="navbar-brand active">We offer wellness hospital</a>
           </div>
           <ul class="nav navbar-nav">
             <li><a href="index.php">HOME</a></li>
-            <li><a href="books.php">BOOKS</a></li>
+            <li><a href="books.php">SERVICES</a></li>
             <li><a href="feedback.php">FEEDBACK</a></li>
 			<li><a href="rooms.php">ROOMS</a></li>
-			<li><a href="topics.php">TOPICS</a></li>			
+			<li><a href="topics.php">LATEST NEWS</a></li>			
           </ul>
           <?php
             if(isset($_SESSION['login_user']))

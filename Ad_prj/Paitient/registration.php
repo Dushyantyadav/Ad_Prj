@@ -49,6 +49,8 @@
           <input class="form-control" type="text" name="pt_gen" placeholder="Gender" required=""><br>
           <input class="form-control" type="text" name="pt_bld_grp" placeholder="Blood Group" required=""><br>
           <input class="form-control" type="text" name="pt_type" placeholder="Type" required=""><br>
+          <input class="form-control" type="text" name="pt_email" placeholder="Email" required=""><br>
+          <input class="form-control" type="password" name="pt_password" placeholder="Password" required=""><br>
 
           
           <input class="btn btn-default" type="submit" name="submit" value="Sign Up" style="color: black; width: 70px; height: 30px"> </div>
@@ -76,8 +78,8 @@
         }
         if($count==0)
         {
-          $stmt = $db->prepare("INSERT INTO ad_patient(pt_id, pt_fst_name, pt_lst_name, pt_house_no, pt_street, pt_city, pt_zipcode, pt_ph_no,pt_b_date, pt_race, pt_mar_stat,pt_gen, pt_bld_grp, pt_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-          $stmt->bind_param("ississsissssss",$_POST['pt_id'], $_POST['pt_fst_name'], $_POST['pt_lst_name'], $_POST['pt_house_no'], $_POST['pt_street'], $_POST['pt_city'], $_POST['pt_zipcode'], $_POST['pt_ph_no'], $_POST['pt_b_date'], $_POST['pt_race'], $_POST['pt_mar_stat'], $_POST['pt_gen'], $_POST['pt_bld_grp'], $_POST['pt_type']);
+          $stmt = $db->prepare("INSERT INTO ad_patient(pt_id, pt_fst_name, pt_lst_name, pt_house_no, pt_street, pt_city, pt_zipcode, pt_ph_no,pt_b_date, pt_race, pt_mar_stat,pt_gen, pt_bld_grp, pt_type, pt_email,pt_password ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+          $stmt->bind_param("ississsissssssss",$_POST['pt_id'], $_POST['pt_fst_name'], $_POST['pt_lst_name'], $_POST['pt_house_no'], $_POST['pt_street'], $_POST['pt_city'], $_POST['pt_zipcode'], $_POST['pt_ph_no'], $_POST['pt_b_date'], $_POST['pt_race'], $_POST['pt_mar_stat'], $_POST['pt_gen'], $_POST['pt_bld_grp'], $_POST['pt_type'], $_POST['pt_email'], $_POST['pt_password']);
           $result = $stmt->execute();
           if($result){
           echo "New records created successfully";

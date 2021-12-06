@@ -7,7 +7,7 @@
 <html>
 <head>
 
-  <title>Student Login</title>
+  <title>Patient Login</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,13 +29,13 @@
   <div class="log_img">
    <br>
     <div class="box1">
-        <h1 style="text-align: center; font-size: 35px;font-family: Lucida Console;">Library Management System</h1>
-        <h1 style="text-align: center; font-size: 25px;">User Login Form</h1><br>
+        <h1 style="text-align: center; font-size: 35px;font-family: Lucida Console;">Patient Login Management</h1>
+        <h1 style="text-align: center; font-size: 25px;">Patient Login Form</h1><br>
       <form  name="login" action="" method="post">
         
         <div class="login">
-          <input class="form-control" type="text" name="cust_id" placeholder="Customer ID" required=""> <br>
-          <input class="form-control" type="password" name="email" placeholder="Email ID" required=""> <br>
+          <input class="form-control" type="text" name="pt_email" placeholder="Patient Email ID" required=""> <br>
+          <input class="form-control" type="password" name="pt_password" placeholder="Password" required=""> <br>
           <input class="btn btn-default" type="submit" name="submit" value="Login" style="color: black; width: 70px; height: 30px"> 
         </div>
       
@@ -54,7 +54,7 @@
     if(isset($_POST['submit']))
     {
       $count=0;
-      $res=mysqli_query($db,"SELECT * FROM `customer` WHERE cust_id='$_POST[cust_id]' && email='$_POST[email]';");
+      $res=mysqli_query($db,"SELECT * FROM `ad_patient` WHERE pt_email='$_POST[pt_email]' && pt_password='$_POST[pt_password]';");
       
       $row= mysqli_fetch_assoc($res);
       $count=mysqli_num_rows($res);
@@ -74,7 +74,7 @@
       }
       else
       {
-        $_SESSION['login_user'] = $_POST['cust_id'];
+        $_SESSION['login_user'] = $_POST['pt_email'];
         $_SESSION['pic']= $row['pic'];
 
         ?>

@@ -31,9 +31,9 @@
  						</script>
  					<?php
  				}
- 				$q=mysqli_query($db,"SELECT * FROM customer where cust_id='$_SESSION[login_user]' ;");
+ 				$q=mysqli_query($db,"SELECT * FROM ad_patient where pt_email='$_SESSION[login_user]' ;");
  			?>
- 			<h2 style="text-align: center;">My Profile</h2>
+ 			<h2 style="text-align: center;">Patient's Profile</h2>
 
  			<?php
  				$row=mysqli_fetch_assoc($q);
@@ -53,7 +53,7 @@
 	 					echo "</td>";
 
 	 					echo "<td>";
-	 						echo $row['cfname'];
+	 						echo $row['pt_fst_name'];
 	 					echo "</td>";
 	 				echo "</tr>";
 					
@@ -65,7 +65,7 @@
 	 						echo "<b> Last name: </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['clname'];
+	 						echo $row['pt_last_name'];
 	 					echo "</td>";
 	 				echo "</tr>";
 					

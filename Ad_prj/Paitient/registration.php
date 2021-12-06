@@ -76,7 +76,7 @@
         #}
         if($count==0)
         {
-          $stmt = $db->prepare("INSERT INTO ad_patient (pt_fst_name, pt_lst_name, pt_house_no, pt_street, pt_city, pt_zipcode, pt_ph_no, pt_b_date,pt_race,pt_mar_stat,pt_gen,pt_bld_grp,pt_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+          $stmt = $db->prepare("INSERT INTO ad_patient (pt_fst_name, pt_lst_name, pt_house_no, pt_street, pt_city, pt_zipcode, pt_ph_no, pt_b_date,pt_race,pt_mar_stat,pt_gen,pt_bld_grp,pt_type) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
           $stmt->bind_param("ssisssissssss",$_POST['pt_fst_name'], $_POST['pt_lst_name'], $_POST['pt_house_no'], $_POST['pt_street'],$_POST['pt_city'], $_POST['pt_zipcode'], $_POST['pt_ph_no'],$_POST['pt_b_date'],$_POST['pt_race'], $_POST['pt_mar_stat'], $_POST['pt_gen'], $_POST['pt_bld_grp'], $_POST['pt_type']);
           
           $result = $stmt->execute();

@@ -122,8 +122,8 @@
 	  document.getElementById("main").style.marginLeft= "0";
 	  document.body.style.backgroundColor = "white";
 	}
-	function onClickPay(inv_no) {
-		window.location = `/pay.php?q=${inv_no}`;
+	function onClickPay(inv_num) {
+		window.location = `/pay.php?q=${inv_num}`;
 	}
 	
 	</script>
@@ -160,7 +160,7 @@
         $res=mysqli_query($db,$sql);
         if($count==0)
         {
-          $inv_no = (int)$_GET['q'];
+          $inv_num = (int)$_GET['q'];
 		  $pp="INSERT INTO payments (pm_date,pm_method, crd_h_fname, crd_h_lname, pm_amt,inv_no) values (sysdate(),'$_POST[pm_method]','$_POST[crd_h_fname]','$_POST[crd_h_lname]','$_POST[pmt_amt]',$inv_no);";
 	
 		  $r=mysqli_query($db,"INSERT INTO payments (pm_date,pm_method, crd_h_fname, crd_h_lname, pm_amt,inv_no) values (sysdate(),'$_POST[pm_method]','$_POST[crd_h_fname]','$_POST[crd_h_lname]','$_POST[pmt_amt]',$inv_no);") or die(mysqli_error($db));

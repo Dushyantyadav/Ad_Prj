@@ -33,7 +33,7 @@
  			}
 
 
- 				$q=mysqli_query($db,"SELECT * FROM author where email='$_SESSION[login_user]' ;");
+ 				$q=mysqli_query($db,"SELECT * FROM ad_hospital where h_email='$_SESSION[login_user]' ;");
  			?>
  			<h2 style="text-align: center;">My Profile</h2>
 
@@ -54,80 +54,97 @@
  				echo "<table class='table table-bordered'>";
 	 				echo "<tr>";
 	 					echo "<td>";
-	 						echo "<b> First Name: </b>";
+	 						echo "<b> Name: </b>";
 	 					echo "</td>";
 
 	 					echo "<td>";
-	 						echo $row['afname'];
+	 						echo $row['name'];
 	 					echo "</td>";
 	 				echo "</tr>";
 
 	 				echo "<tr>";
 	 					echo "<td>";
-	 						echo "<b> Last Name: </b>";
+	 						echo "<b> Street </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['alname'];
-	 					echo "</td>";
-	 				echo "</tr>";
-
-	 				echo "<tr>";
-	 					echo "<td>";
-	 						echo "<b> Password: </b>";
-	 					echo "</td>";
-	 					echo "<td>";
-	 						echo $row['at_id'];
+	 						echo $row['street'];
 	 					echo "</td>";
 	 				echo "</tr>";
 
 	 				echo "<tr>";
 	 					echo "<td>";
-	 						echo "<b> Email: </b>";	
-	 					echo "</td>";
-	 					echo "<td>";
-	 						echo $row['email'];
-	 					echo "</td>";
-	 				echo "</tr>";
-
-	 				echo "<tr>";
-	 					echo "<td>";
-	 						echo "<b> House Number: </b>";
-	 					echo "</td>";
-	 					echo "<td>";
-	 						echo $row['h_no'];
-	 					echo "</td>";
-	 				echo "</tr>";
-					echo "<tr>";
-	 					echo "<td>";
-	 						echo "<b> City: </b>";
+	 						echo "<b> City </b>";
 	 					echo "</td>";
 	 					echo "<td>";
 	 						echo $row['city'];
 	 					echo "</td>";
 	 				echo "</tr>";
-						 				echo "<tr>";
+
+	 				echo "<tr>";
 	 					echo "<td>";
-	 						echo "<b> State: </b>";
+	 						echo "<b> State </b>";	
 	 					echo "</td>";
 	 					echo "<td>";
 	 						echo $row['state'];
 	 					echo "</td>";
 	 				echo "</tr>";
-					
-					echo "<tr>";
+
+	 				echo "<tr>";
 	 					echo "<td>";
-	 						echo "<b> Country: </b>";
+	 						echo "<b> Zipcode </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['cntry'];
+	 						echo $row['zipcode'];
 	 					echo "</td>";
 	 				echo "</tr>";
 					echo "<tr>";
 	 					echo "<td>";
-	 						echo "<b> Zip Code: </b>";
+	 						echo "<b> Specialty </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['z_code'];
+	 						echo $row['specialty'];
+	 					echo "</td>";
+	 				echo "</tr>";
+						 				echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Emergency Number </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['er_number'];
+	 					echo "</td>";
+	 				echo "</tr>";
+					
+					echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> General Enquiry Number </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['gn_enq_ph_no'];
+	 					echo "</td>";
+	 				echo "</tr>";
+					echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Admin Phone Number </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['r_adm_ph_no'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+					 echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Email </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['h_email'];
+	 					echo "</td>";
+	 				echo "</tr>";
+					echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Your Password </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['h_password'];
 	 					echo "</td>";
 	 				echo "</tr>";
 

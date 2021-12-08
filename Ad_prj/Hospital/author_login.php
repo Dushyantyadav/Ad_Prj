@@ -7,7 +7,7 @@
 <html>
 <head>
 
-  <title>Student Login</title>
+  <title>Hospital Login</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,13 +25,13 @@
   <div class="log_img">
    <br>
     <div class="box1">
-        <h1 style="text-align: center; font-size: 35px;font-family: Lucida Console;">Library Management System</h1>
-        <h1 style="text-align: center; font-size: 25px;">User Login Form</h1><br>
+        <h1 style="text-align: center; font-size: 35px;font-family: Lucida Console;">We Offer Wellness</h1>
+        <h1 style="text-align: center; font-size: 25px;">Hospital Login</h1><br>
       <form  name="login" action="" method="post">
         
         <div class="login">
-          <input class="form-control" type="text" name="email" placeholder="Email" required=""> <br>
-          <input class="form-control" type="password" name="at_id" placeholder="Password" required=""> <br>
+          <input class="form-control" type="text" name="h_email" placeholder="Email" required=""> <br>
+          <input class="form-control" type="password" name="h_password" placeholder="Password" required=""> <br>
           <input class="btn btn-default" type="submit" name="submit" value="Login" style="color: black; width: 70px; height: 30px"> 
         </div>
       
@@ -50,7 +50,7 @@
     if(isset($_POST['submit']))
     {
       $count=0;
-      $res=mysqli_query($db,"SELECT * FROM `author` WHERE email='$_POST[email]' && at_id='$_POST[at_id]';");
+      $res=mysqli_query($db,"SELECT * FROM `ad_hospital` WHERE h_email='$_POST[h_email]' && h_password='$_POST[h_password]';");
 
       $row= mysqli_fetch_assoc($res);
 
@@ -73,7 +73,7 @@
       {
         /*-------------if username & password matches---*/
 
-        $_SESSION['login_user'] = $_POST['email']; 
+        $_SESSION['login_user'] = $_POST['h_email']; 
         $_SESSION['pic']= $row['pic'];
 
         ?>

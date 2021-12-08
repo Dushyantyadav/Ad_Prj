@@ -45,6 +45,8 @@
           <input class="form-control" type="text" name="er_number" placeholder="Emergency number" required=""><br>
 		      <input class="form-control" type="text" name="gn_enq_ph_no" placeholder="General Enquiry number" required=""><br>
 		      <input class="form-control" type="text" name="r_adm_ph_no" placeholder="Admin phone number" required=""><br>
+          <input class="form-control" type="text" name="h_email" placeholder="Email" required=""><br>
+		      <input class="form-control" type="text" name="h_password" placeholder="Password" required=""><br>
           
       
           <input class="btn btn-default" type="submit" name="submit" value="Sign Up" style="color: black; width: 70px; height: 30px"> </div>
@@ -72,8 +74,8 @@
         }
         if($count==0)
         {
-          $stmt = $db->prepare("INSERT INTO ad_hospital (hsp_id, name, street, city, state, zipcode, specialty, er_number, gn_enq_ph_no, r_adm_ph_no) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?)");
-          $stmt->bind_param("issssssiii",$_POST['hsp_id'], $_POST['name'], $_POST['street'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['specialty'], $_POST['er_number'], $_POST['gn_enq_ph_no'], $_POST['r_adm_ph_no']);
+          $stmt = $db->prepare("INSERT INTO ad_hospital (hsp_id, name, street, city, state, zipcode, specialty, er_number, gn_enq_ph_no, r_adm_ph_no, h_email, h_password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)");
+          $stmt->bind_param("issssssiiiss",$_POST['hsp_id'], $_POST['name'], $_POST['street'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['specialty'], $_POST['er_number'], $_POST['gn_enq_ph_no'], $_POST['r_adm_ph_no'], $_POST['h_email'], $_POST['h_password']);
           
           $result = $stmt->execute();
           if($result){

@@ -51,7 +51,6 @@
           <input class="form-control" type="text" name="pt_type" placeholder="Type" required=""><br>
           <input class="form-control" type="text" name="pt_email" placeholder="Email" required=""><br>
           <input class="form-control" type="password" name="pt_password" placeholder="Password" required=""><br>
-
           
           <input class="btn btn-default" type="submit" name="submit" value="Sign Up" style="color: black; width: 70px; height: 30px"> </div>
       </form>

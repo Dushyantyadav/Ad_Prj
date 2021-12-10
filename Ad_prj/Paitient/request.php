@@ -122,8 +122,8 @@
 	  document.getElementById("main").style.marginLeft= "0";
 	  document.body.style.backgroundColor = "white";
 	}
-	function onClickPay(inv_num) {
-		window.location = `/pay.php?q=${inv_num}`;
+	function onClickPay(my_inv_no) {
+		window.location = `pay.php?qq=${my_inv_no}`;
 	}	
 	</script>
 	<br><br>
@@ -141,7 +141,7 @@
 			#$amt=15*0.2;
 			#$r=mysqli_query($db,"INSERT INTO invoice(inv_date,inv_amt,ren_id) values (sysdate(),$amt, '$inserted_id');") or die(mysqli_error($db));
 			//echo "<h1>".$p."</h1>";
-			if(mysqli_num_rows($q)==0)
+			if(mysqli_num_rows($qq)==0)
 			{
 				echo "There's no pending request";
 			}
@@ -164,7 +164,7 @@
 				
 			echo "</tr>";	
 
-			while($row=mysqli_fetch_assoc($q))
+			while($row=mysqli_fetch_assoc($qq))
 			{
 				echo "<tr>";
 				echo "<td>"; echo $row['inv_num'] ; echo "</td>";
@@ -177,9 +177,10 @@
 				echo "<td>"; echo $row['bill_ins']; echo "</td>";
 				echo "<td>"; echo $row['cost_pat']; echo "</td>";
 				echo "<td>"; echo $row['reg_no']; echo "</td>";
+				$my_inv_no = $row['inv_num'];
 				if($row['reg_no'] != "99s9"){
 					echo "<td> <button style='background-color: #6db6b9e6;' type='submit' name='submit1' 
-					onclick=\"onClickPay($inv_num)\"
+					onclick=\"onClickPay($my_inv_no)\"
 					class='btn btn-default'>Pay
 					</button>
 					</td>";

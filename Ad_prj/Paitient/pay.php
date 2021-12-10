@@ -122,8 +122,8 @@
 	  document.getElementById("main").style.marginLeft= "0";
 	  document.body.style.backgroundColor = "white";
 	}
-	function onClickPay(inv_num) {
-		window.location = `/pay.php?q=${inv_num}`;
+	function onClickPay(my_inv_no) {
+		window.location = `/pay.php?qq=${my_inv_no}`;
 	}
 	
 	</script>
@@ -138,10 +138,8 @@
       <form name="Registration" action="" method="post">
         
         <div class="login">
-          <input class="form-control" type="text" name="pm_method" placeholder="Payment Method" required=""> <br>
-          <input class="form-control" type="text" name="crd_h_fname" placeholder="First Name" required=""> <br>
-          <input class="form-control" type="text" name="crd_h_lname" placeholder="Last Name" required=""><br>
-          <input class="form-control" type="text" name="pmt_amt" placeholder="Payment amount" required=""><br>
+          <input class="form-control" type="text" name="py_type" placeholder="Payment Type" required=""> <br>
+          <input class="form-control" type="text" name="py_amount" placeholder="Payment amount" required=""> <br>
           
           <input class="btn btn-default" type="submit" name="submit" value="Pay" style="color: black; width: 70px; height: 30px"> </div>
       </form>
@@ -156,16 +154,16 @@
       {
         $count=0;
 
-        $sql="SELECT cust_id from `customer`";
+        $sql="SELECT pt_id from `ad_patient`";
         $res=mysqli_query($db,$sql);
         if($count==0)
         {
-          $inv_num = (int)$_GET['q'];
-		  $pp="INSERT INTO payments (pm_date,pm_method, crd_h_fname, crd_h_lname, pm_amt,inv_no) values (sysdate(),'$_POST[pm_method]','$_POST[crd_h_fname]','$_POST[crd_h_lname]','$_POST[pmt_amt]',$inv_no);";
+          $my_inv_no = (int)$_GET['qq'];
+		  $pp="INSERT INTO ad_payments (py_date,py_amt, py_type, inv_num) values (sysdate(),'$_POST[py_amount]','$_POST[py_type]',$my_inv_no);";
 	
-		  $r=mysqli_query($db,"INSERT INTO payments (pm_date,pm_method, crd_h_fname, crd_h_lname, pm_amt,inv_no) values (sysdate(),'$_POST[pm_method]','$_POST[crd_h_fname]','$_POST[crd_h_lname]','$_POST[pmt_amt]',$inv_no);") or die(mysqli_error($db));
+		  $r=mysqli_query($db,"INSERT INTO ad_payments (py_date,py_amt, py_type, inv_num) values (sysdate(),'$_POST[py_amount]','$_POST[py_type]',$my_inv_no);") or die(mysqli_error($db));
 		  
-		  $lr=mysqli_query($db,"UPDATE invoice set pay_status='Paid' where inv_no=$inv_no");
+		  $lr=mysqli_query($db,"UPDATE ad_invoice set inv_status='Paid' where inv_num=$my_inv_no");
 		  //$stmt = $db->prepare("INSERT INTO invoice (pay_status) VALUES ('Paid') where inv_no=?");
 		  //$stmt->bind_param("i",$_GET['q']);
 		  //$result = $stmt->execute();

@@ -7,7 +7,7 @@
 <html>
 <head>
 
-  <title>Customer Registration</title>
+  <title>Admin Registration</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,14 +35,13 @@
       <form name="Registration" action="" method="post">
         
         <div class="login">
-		  <input class="form-control" type="text" name="ademailid" placeholder="Email ID" required=""> <br>
-          <input class="form-control" type="password" name="password" placeholder="Password" required=""> <br>
-		  <input class="form-control" type="text" name="fstname" placeholder="First Name" required=""> <br>
+      <input class="form-control" type="text" name="admin_id" placeholder="Admin ID" required=""> <br>
+      <input class="form-control" type="text" name="fstname" placeholder="First Name" required=""> <br>
 		  <input class="form-control" type="text" name="lstname" placeholder="Last Name" required=""> <br>
-		  <input class="form-control" type="text" name="contactno" placeholder="Contact Number" required=""> <br>
+      <input class="form-control" type="text" name="ademailid" placeholder="Email ID" required=""> <br>
+      <input class="form-control" type="password" name="adpassword" placeholder="Password" required=""> <br>
+      <input class="form-control" type="text" name="adcontactno" placeholder="Contact Number" required=""> <br>
 		  
-
-          
           <input class="btn btn-default" type="submit" name="submit" value="Sign Up" style="color: black; width: 70px; height: 30px"> </div>
       </form>
      
@@ -56,7 +55,7 @@
       {
         $count=0;
 
-        $sql="SELECT ademailid from `admin`";
+        $sql="SELECT ademailid from `ad_admin`";
         $res=mysqli_query($db,$sql);
 
         while($row=mysqli_fetch_assoc($res))
@@ -68,8 +67,8 @@
         }
         if($count==0)
         {
-          $stmt = $db->prepare("INSERT INTO admin (password,fstname,lstname,ademailid,contactno) VALUES (?, ?, ?, ?, ?)");
-          $stmt->bind_param("ssssi",$_POST['password'], $_POST['fstname'], $_POST['lstname'], $_POST['ademailid'], $_POST['contactno']);
+          $stmt = $db->prepare("INSERT INTO ad_admin (admin_id,fstname,lstname,ademailid,adpassword,adcontactno) VALUES (?,?, ?, ?, ?, ?)");
+          $stmt->bind_param("issssi",$_POST['admin_id'],$_POST['fstname'], $_POST['lstname'], $_POST['ademailid'], $_POST['adpassword'], $_POST['adcontactno']);
           
           $result = $stmt->execute();
           if($result){

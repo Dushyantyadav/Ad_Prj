@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>edit profile</title>
+	<title>Edit profile</title>
 	<style type="text/css">
 		.form-control
 		{
@@ -28,17 +28,19 @@
 	<h2 style="text-align: center;color: #fff;">Edit Information</h2>
 	<?php
 		
-		$sql = "SELECT * FROM customer WHERE cust_id='$_SESSION[login_user]'";
+		$sql = "SELECT * FROM ad_doctor WHERE d_email ='$_SESSION[login_user]'";
 		$result = mysqli_query($db,$sql) or die (mysql_error());
 
 		while ($row = mysqli_fetch_assoc($result)) 
 		{
-			$first=$row['cfname'];
-			$last=$row['clname'];
-			$username=$row['ph_num'];
-			$password=$row['email'];
-			$email=$row['id_type'];
-			$contact=$row['id_num'];
+			$first=$row['d_fst_name'];
+			$last=$row['d_lst_name'];
+			$ofc=$row['d_ofc_no'];
+			$pr=$row['d_pr_no'];
+			$spec=$row['d_speciality'];
+			$dtype=$row['d_type'];
+			$email=$row['d_email'];
+			$dpassw=$row['d_password'];
 		}
 
 	?>
@@ -53,22 +55,28 @@
 
 
 		<label><h4><b>First Name: </b></h4></label>
-		<input class="form-control" type="text" name="first" value="<?php echo $first; ?>">
+		<input class="form-control" type="text" name="d_fst_name" value="<?php echo $first; ?>">
 
 		<label><h4><b>Last Name</b></h4></label>
-		<input class="form-control" type="text" name="last" value="<?php echo $last; ?>">
+		<input class="form-control" type="text" name="d_lst_name" value="<?php echo $last; ?>">
 
-		<label><h4><b>Phone Number</b></h4></label>
-		<input class="form-control" type="text" name="ph_num" value="<?php echo $username; ?>">
+		<label><h4><b>Office Phone Number</b></h4></label>
+		<input class="form-control" type="text" name="d_ofc_no" value="<?php echo $ofc; ?>">
 
-		<label><h4><b>Password/Email</b></h4></label>
-		<input class="form-control" type="text" name="password" value="<?php echo $password; ?>">
+		<label><h4><b>Personal Phone Number</b></h4></label>
+		<input class="form-control" type="text" name="d_pr_no" value="<?php echo $pr; ?>">
 
-		<label><h4><b>ID Type</b></h4></label>
-		<input class="form-control" type="text" name="email" value="<?php echo $email; ?>">
+		<label><h4><b>Speciality</b></h4></label>
+		<input class="form-control" type="text" name="d_speciality" value="<?php echo $spec; ?>">
 
-		<label><h4><b>ID Number</b></h4></label>
-		<input class="form-control" type="text" name="contact" value="<?php echo $contact; ?>">
+		<label><h4><b>Doctor Type</b></h4></label>
+		<input class="form-control" type="text" name="d_type" value="<?php echo $dtype; ?>">
+
+		<label><h4><b>Email</b></h4></label>
+		<input class="form-control" type="text" name="d_email" value="<?php echo $email; ?>">
+
+		<label><h4><b>Password</b></h4></label>
+		<input class="form-control" type="text" name="d_password" value="<?php echo $dpassw; ?>">
 
 		<br>
 		<div style="padding-left: 100px;">
@@ -81,15 +89,16 @@
 		{
 			move_uploaded_file($_FILES['file']['tmp_name'],"images/pp.png".$_FILES['file']['name']);
 
-			$first=$_POST['first'];
-			$last=$_POST['last'];
-			$username=$_POST['ph_num'];
-			$password=$_POST['password'];
-			$email=$_POST['email'];
-			$contact=$_POST['contact'];
-			$pic=$_FILES['file']['name'];
+			$first=$POST['d_fst_name'];
+			$last=$POST['d_lst_name'];
+			$ofc=$POST['d_ofc_no'];
+			$pr=$POST['d_pr_no'];
+			$spec=$POST['d_speciality'];
+			$dtype=$POST['d_type'];
+			$email=$POST['d_email'];
+			$dpassw=$POST['d_password'];
 
-			$sql1= "UPDATE customer SET cfname='$first', clname='$last', ph_num='$username', email='$password', id_type='$email', id_num='$contact' WHERE cust_id='".$_SESSION['login_user']."';";
+			$sql1= "UPDATE ad_doctor SET d_fst_name='$first', d_lst_name='$last', d_ofc_no='$ofc', d_pr_no='$pr', d_speciality='$spec', d_type='$dtype', d_email='$email', d_password='$dpassw' WHERE d_email='".$_SESSION['login_user']."';";
 
 			if(mysqli_query($db,$sql1))
 			{

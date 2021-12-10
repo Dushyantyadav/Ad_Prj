@@ -42,6 +42,8 @@
           <input class="form-control" type="text" name="d_pr_no" placeholder="Doctor's personal number" required=""><br>
           <input class="form-control" type="text" name="d_speciality" placeholder="Speciality" required=""><br>
           <input class="form-control" type="text" name="d_type" placeholder="Doctor type" required=""><br>
+          <input class="form-control" type="text" name="d_email" placeholder="Email" required=""><br>
+          <input class="form-control" type="password" name="d_password" placeholder="Password" required=""><br>
 
           <input class="btn btn-default" type="submit" name="submit" value="Sign Up" style="color: black; width: 70px; height: 30px"> </div>
       </form>
@@ -68,8 +70,8 @@
         }
         if($count==0)
         {
-          $stmt = $db->prepare("INSERT INTO ad_doctor (d_id, d_fst_name, d_lst_name, d_ofc_no, d_pr_no, d_speciality, d_type) VALUES (?, ?, ?, ?, ?, ?, ?)");
-          $stmt->bind_param("issiiss",$_POST['d_id'], $_POST['d_fst_name'], $_POST['d_lst_name'], $_POST['d_ofc_no'], $_POST['d_pr_no'], $_POST['d_speciality'], $_POST['d_type']);
+          $stmt = $db->prepare("INSERT INTO ad_doctor (d_id, d_fst_name, d_lst_name, d_ofc_no, d_pr_no, d_speciality, d_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+          $stmt->bind_param("issiissss",$_POST['d_id'], $_POST['d_fst_name'], $_POST['d_lst_name'], $_POST['d_ofc_no'], $_POST['d_pr_no'], $_POST['d_speciality'], $_POST['d_type'], $_POST['d_email'], $_POST['d_password']);
           $result = $stmt->execute();
           if($result){
           echo "New records created successfully";

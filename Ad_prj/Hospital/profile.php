@@ -58,7 +58,7 @@
 	 					echo "</td>";
 
 	 					echo "<td>";
-	 						echo $row['name'];
+	 						echo $row['h_name'];
 	 					echo "</td>";
 	 				echo "</tr>";
 
@@ -67,7 +67,7 @@
 	 						echo "<b> Street </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['street'];
+	 						echo $row['h_street'];
 	 					echo "</td>";
 	 				echo "</tr>";
 
@@ -76,7 +76,7 @@
 	 						echo "<b> City </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['city'];
+	 						echo $row['h_city'];
 	 					echo "</td>";
 	 				echo "</tr>";
 
@@ -85,7 +85,7 @@
 	 						echo "<b> State </b>";	
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['state'];
+	 						echo $row['h_state'];
 	 					echo "</td>";
 	 				echo "</tr>";
 
@@ -94,7 +94,7 @@
 	 						echo "<b> Zipcode </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['zipcode'];
+	 						echo $row['h_zipcode'];
 	 					echo "</td>";
 	 				echo "</tr>";
 					echo "<tr>";
@@ -102,7 +102,7 @@
 	 						echo "<b> Specialty </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['specialty'];
+	 						echo $row['h_specialty'];
 	 					echo "</td>";
 	 				echo "</tr>";
 						 				echo "<tr>";

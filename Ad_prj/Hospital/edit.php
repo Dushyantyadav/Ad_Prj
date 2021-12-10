@@ -33,12 +33,13 @@
 
 		while ($row = mysqli_fetch_assoc($result)) 
 		{
-			$hname=$row['name'];
-			$street=$row['street'];
-			$city=$row['city'];
-			$state=$row['state'];
-			$zipcode=$row['zipcode'];
-			$spec=$row['specialty'];
+			$hsp_id=$row['hsp_id'];
+			$hname=$row['h_name'];
+			$street=$row['h_street'];
+			$city=$row['h_city'];
+			$state=$row['h_state'];
+			$zipcode=$row['h_zipcode'];
+			$spec=$row['h_specialty'];
 			$emer=$row['er_number'];
 			$gnenq=$row['gn_enq_ph_no'];
 			$radm=$row['r_adm_ph_no'];
@@ -56,24 +57,26 @@
 	<div class="form1">
 		<form action="" method="post" enctype="multipart/form-data">
 
-
 		<label><h4><b>Name </b></h4></label>
-		<input class="form-control" type="text" name="name" value="<?php echo $hname; ?>">
+		<input class="form-control" type="text" name="hsp_id" value="<?php echo $hsp_id; ?>">
+		
+		<label><h4><b>Name </b></h4></label>
+		<input class="form-control" type="text" name="h_name" value="<?php echo $hname; ?>">
 
 		<label><h4><b>Street</b></h4></label>
-		<input class="form-control" type="text" name="street" value="<?php echo $street; ?>">
+		<input class="form-control" type="text" name="h_street" value="<?php echo $street; ?>">
 
 		<label><h4><b>City</b></h4></label>
-		<input class="form-control" type="text" name="city" value="<?php echo $city; ?>">
+		<input class="form-control" type="text" name="h_city" value="<?php echo $city; ?>">
 
 		<label><h4><b>State</b></h4></label>
-		<input class="form-control" type="text" name="state" value="<?php echo $state; ?>">
+		<input class="form-control" type="text" name="h_state" value="<?php echo $state; ?>">
 
 		<label><h4><b>Zipcode</b></h4></label>
-		<input class="form-control" type="text" name="zipcode" value="<?php echo $zipcode; ?>">
+		<input class="form-control" type="text" name="h_zipcode" value="<?php echo $zipcode; ?>">
 
 		<label><h4><b>Specialty</b></h4></label>
-		<input class="form-control" type="text" name="specialty" value="<?php echo $spec; ?>">
+		<input class="form-control" type="text" name="h_specialty" value="<?php echo $spec; ?>">
 		
 		<label><h4><b>Emergency Number</b></h4></label>
 		<input class="form-control" type="text" name="er_number" value="<?php echo $emer; ?>">
@@ -99,19 +102,20 @@
 		if(isset($_POST['submit']))
 		{
 
-			$hname=$row['name'];
-			$street=$row['street'];
-			$city=$row['city'];
-			$state=$row['state'];
-			$zipcode=$row['zipcode'];
-			$spec=$row['specialty'];
-			$emer=$row['er_number'];
-			$gnenq=$row['gn_enq_ph_no'];
-			$radm=$row['r_adm_ph_no'];
-			$email=$row['h_email'];
-			$passw=$row['h_password'];
+			$hsp_id=$POST['hsp_id'];
+			$hname=$POST['h_name'];
+			$street=$POST['h_street'];
+			$city=$POST['h_city'];
+			$state=$POST['h_state'];
+			$zipcode=$POST['h_zipcode'];
+			$spec=$POST['h_specialty'];
+			$emer=$POST['er_number'];
+			$gnenq=$POST['gn_enq_ph_no'];
+			$radm=$POST['r_adm_ph_no'];
+			$email=$POST['h_email'];
+			$passw=$POST['h_password'];
 
-			$sql1= "UPDATE ad_hospital SET name='$hname', street='$street', city='$city', state='$state', zipcode='$zipcode', specialty='$spec', er_number='$emer', gn_enq_ph_no='$gnenq', r_adm_ph_no='$radm', h_email='$email', h_password='$passw' WHERE h_email='".$_SESSION['login_user']."';";
+			$sql1= "UPDATE ad_hospital SET hsp_id = '$hsp_id', h_name='$hname', h_street='$street', h_city='$city', h_state='$state', h_zipcode='$zipcode', h_specialty='$spec', er_number='$emer', gn_enq_ph_no='$gnenq', r_adm_ph_no='$radm', h_email='$email', h_password='$passw' WHERE h_email='".$_SESSION['login_user']."';";
 
 			if(mysqli_query($db,$sql1))
 			{

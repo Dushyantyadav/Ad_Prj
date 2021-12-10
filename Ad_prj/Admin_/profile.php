@@ -33,7 +33,7 @@
  			}
 
 
- 				$q=mysqli_query($db,"SELECT * FROM admin where ademailid='$_SESSION[login_user]' ;");
+ 				$q=mysqli_query($db,"SELECT * FROM ad_admin where ademailid='$_SESSION[login_user]' ;");
  			?>
  			<h2 style="text-align: center;">My Profile</h2>
 
@@ -76,7 +76,7 @@
 	 						echo "<b> Password: </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['password'];
+	 						echo $row['adpassword'];
 	 					echo "</td>";
 	 				echo "</tr>";
 
@@ -94,7 +94,7 @@
 	 						echo "<b> Contact: </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['contactno'];
+	 						echo $row['adcontactno'];
 	 					echo "</td>";
 	 				echo "</tr>";
 

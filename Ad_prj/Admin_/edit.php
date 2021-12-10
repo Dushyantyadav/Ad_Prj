@@ -28,16 +28,16 @@
 	<h2 style="text-align: center;color: #fff;">Edit Information</h2>
 	<?php
 		
-		$sql = "SELECT * FROM admin WHERE ademailid='$_SESSION[login_user]'";
+		$sql = "SELECT * FROM ad_admin WHERE ademailid='$_SESSION[login_user]'";
 		$result = mysqli_query($db,$sql) or die (mysql_error());
 
 		while ($row = mysqli_fetch_assoc($result)) 
 		{
 			$first=$row['fstname'];
 			$last=$row['lstname'];
-			$password=$row['password'];
+			$password=$row['adpassword'];
 			$email=$row['ademailid'];
-			$contact=$row['contactno'];
+			$contact=$row['adcontactno'];
 		}
 
 	?>
@@ -60,13 +60,13 @@
 
 
 		<label><h4><b>Password</b></h4></label>
-		<input class="form-control" type="text" name="password" value="<?php echo $password; ?>">
+		<input class="form-control" type="text" name="adpassword" value="<?php echo $password; ?>">
 
 		<label><h4><b>Email</b></h4></label>
 		<input class="form-control" type="text" name="ademailid" value="<?php echo $email; ?>">
 
 		<label><h4><b>Contact No</b></h4></label>
-		<input class="form-control" type="text" name="contactno" value="<?php echo $contact; ?>">
+		<input class="form-control" type="text" name="adcontactno" value="<?php echo $contact; ?>">
 
 		<br>
 		<div style="padding-left: 100px;">
@@ -80,12 +80,12 @@
 
 			$first=$_POST['fstname'];
 			$last=$_POST['lstname'];
-			$password=$_POST['password'];
+			$password=$_POST['adpassword'];
 			$email=$_POST['ademailid'];
-			$contact=$_POST['contactno'];
+			$contact=$_POST['adcontactno'];
 			$pic=$_FILES['file']['name'];
 
-			$sql1= "UPDATE admin SET fstname='$first', lstname='$last',password='$password', ademailid='$email', contactno='$contact' WHERE ademailid='".$_SESSION['login_user']."';";
+			$sql1= "UPDATE ad_admin SET fstname='$first', lstname='$last',adpassword='$password', ademailid='$email', adcontactno='$contact' WHERE ademailid='".$_SESSION['login_user']."';";
 
 			if(mysqli_query($db,$sql1))
 			{

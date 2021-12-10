@@ -34,8 +34,8 @@
       <form  name="login" action="" method="post">
         
         <div class="login">
-          <input class="form-control" type="text" name="cust_id" placeholder="Customer ID" required=""> <br>
-          <input class="form-control" type="password" name="email" placeholder="Email ID" required=""> <br>
+          <input class="form-control" type="text" name="d_email" placeholder="Email" required=""> <br>
+          <input class="form-control" type="password" name="d_password" placeholder="Password" required=""> <br>
           <input class="btn btn-default" type="submit" name="submit" value="Login" style="color: black; width: 70px; height: 30px"> 
         </div>
       
@@ -54,7 +54,7 @@
     if(isset($_POST['submit']))
     {
       $count=0;
-      $res=mysqli_query($db,"SELECT * FROM `customer` WHERE cust_id='$_POST[cust_id]' && email='$_POST[email]';");
+      $res=mysqli_query($db,"SELECT * FROM `ad_doctor` WHERE d_email ='$_POST[d_email]' && d_password='$_POST[d_password]';");
       
       $row= mysqli_fetch_assoc($res);
       $count=mysqli_num_rows($res);
@@ -74,7 +74,7 @@
       }
       else
       {
-        $_SESSION['login_user'] = $_POST['cust_id'];
+        $_SESSION['login_user'] = $_POST['d_email'];
         $_SESSION['pic']= $row['pic'];
 
         ?>

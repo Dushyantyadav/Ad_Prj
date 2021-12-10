@@ -31,7 +31,7 @@
  						</script>
  					<?php
  				}
- 				$q=mysqli_query($db,"SELECT * FROM customer where cust_id='$_SESSION[login_user]' ;");
+ 				$q=mysqli_query($db,"SELECT * FROM ad_doctor where d_email='$_SESSION[login_user]' ;");
  			?>
  			<h2 style="text-align: center;">My Profile</h2>
 
@@ -53,55 +53,70 @@
 	 					echo "</td>";
 
 	 					echo "<td>";
-	 						echo $row['cfname'];
+	 						echo $row['d_fst_name'];
 	 					echo "</td>";
 	 				echo "</tr>";
 					
-		
-
-
 	 				echo "<tr>";
 	 					echo "<td>";
 	 						echo "<b> Last name: </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['clname'];
+	 						echo $row['d_lst_name'];
 	 					echo "</td>";
 	 				echo "</tr>";
 					
 					echo "<tr>";
 	 					echo "<td>";
-	 						echo "<b> Phone Number: </b>";
+	 						echo "<b> Office Phone: </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['ph_num'];
-	 					echo "</td>";
-	 				echo "</tr>";
-
-	 				echo "<tr>";
-	 					echo "<td>";
-	 						echo "<b> email </b>";
-	 					echo "</td>";
-	 					echo "<td>";
-	 						echo $row['email'];
+	 						echo $row['d_ofc_no'];
 	 					echo "</td>";
 	 				echo "</tr>";
 
 	 				echo "<tr>";
 	 					echo "<td>";
-	 						echo "<b> ID Type: </b>";	
+	 						echo "<b> Personal Number </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['id_type'];
+	 						echo $row['d_pr_no'];
 	 					echo "</td>";
 	 				echo "</tr>";
 
 	 				echo "<tr>";
 	 					echo "<td>";
-	 						echo "<b> ID NUmber: </b>";
+	 						echo "<b> Specialty </b>";	
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['id_num'];
+	 						echo $row['d_speciality'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+	 				echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Doctor Type </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['d_type'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+					 echo "<tr>";
+					 echo "<td>";
+						 echo "<b> Email </b>";
+					 echo "</td>";
+					 echo "<td>";
+						 echo $row['d_email'];
+					 echo "</td>";
+				 echo "</tr>";
+
+				 echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Password </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['d_password'];
 	 					echo "</td>";
 	 				echo "</tr>";
 

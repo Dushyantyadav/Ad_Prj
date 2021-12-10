@@ -35,7 +35,6 @@
       <form name="Registration" action="" method="post">
         
         <div class="login">
-          <input class="form-control" type="text" name="hsp_id" placeholder="Hospital ID" required=""> <br>
           <input class="form-control" type="text" name="h_name" placeholder="Hospital Name" required=""> <br>
           <input class="form-control" type="text" name="h_street" placeholder="Street" required=""> <br>
           <input class="form-control" type="text" name="h_city" placeholder="City" required=""><br>
@@ -46,7 +45,7 @@
 		      <input class="form-control" type="text" name="gn_enq_ph_no" placeholder="General Enquiry number" required=""><br>
 		      <input class="form-control" type="text" name="r_adm_ph_no" placeholder="Admin phone number" required=""><br>
           <input class="form-control" type="text" name="h_email" placeholder="Email" required=""><br>
-		      <input class="form-control" type="text" name="h_password" placeholder="Password" required=""><br>
+		      <input class="form-control" type="password" name="h_password" placeholder="Password" required=""><br>
           
       
           <input class="btn btn-default" type="submit" name="submit" value="Sign Up" style="color: black; width: 70px; height: 30px"> </div>
@@ -74,8 +73,8 @@
         }
         if($count==0)
         {
-          $stmt = $db->prepare("INSERT INTO ad_hospital (hsp_id, h_name, h_street, h_city, h_state, h_zipcode, h_specialty, er_number, gn_enq_ph_no, r_adm_ph_no, h_email, h_password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)");
-          $stmt->bind_param("issssssiiiss",$_POST['hsp_id'], $_POST['h_name'], $_POST['h_street'], $_POST['h_city'], $_POST['h_state'], $_POST['h_zipcode'], $_POST['h_specialty'], $_POST['er_number'], $_POST['gn_enq_ph_no'], $_POST['r_adm_ph_no'], $_POST['h_email'], $_POST['h_password']);
+          $stmt = $db->prepare("INSERT INTO ad_hospital (h_name, h_street, h_city, h_state, h_zipcode, h_specialty, er_number, gn_enq_ph_no, r_adm_ph_no, h_email, h_password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)");
+          $stmt->bind_param("ssssssiiiss", $_POST['h_name'], $_POST['h_street'], $_POST['h_city'], $_POST['h_state'], $_POST['h_zipcode'], $_POST['h_specialty'], $_POST['er_number'], $_POST['gn_enq_ph_no'], $_POST['r_adm_ph_no'], $_POST['h_email'], $_POST['h_password']);
           
           $result = $stmt->execute();
           if($result){

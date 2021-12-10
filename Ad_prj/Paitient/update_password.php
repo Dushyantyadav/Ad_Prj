@@ -37,8 +37,8 @@
 		</div>
 		<div style="padding-left: 30px; ">
 		<form action="" method="post" >
-			<input type="text" name="cust_id" class="form-control" placeholder="Customer ID" required=""><br>
-			<input type="text" name="email" class="form-control" placeholder="New Password" required=""><br>
+			<input type="text" name="pt_email" class="form-control" placeholder="Patient's Email" required=""><br>
+			<input type="password" name="pt_password" class="form-control" placeholder="New Password" required=""><br>
 			<button class="btn btn-default" type="submit" name="submit" >Update</button>
 		</form>
 
@@ -48,7 +48,7 @@
 
 		if(isset($_POST['submit']))
 		{
-			if(mysqli_query($db,"UPDATE customer SET email='$_POST[email]' WHERE cust_id='$_POST[cust_id]';"))
+			if(mysqli_query($db,"UPDATE ad_patient SET pt_password='$_POST[pt_password]' WHERE pt_email='$_POST[pt_email]';"))
 			{
 				?>
 					<script type="text/javascript">

@@ -26,8 +26,8 @@
             <li><a href="index.php">HOME</a></li>
             <li><a href="books.php">SERVICES</a></li>
             <li><a href="feedback.php">FEEDBACK</a></li>
-			<li><a href="rooms.php">ROOMS</a></li>
-			<li><a href="topics.php">LATEST NEWS</a></li>			
+			<li><a href="addpatient.php">ADD PATIENT</a></li>
+			<li><a href="www.facebook.com">LATEST NEWS</a></li>			
           </ul>
           <?php
             if(isset($_SESSION['login_user']))
@@ -56,7 +56,7 @@
             {   ?>
               <ul class="nav navbar-nav navbar-right">
 
-                <li><a href="student_login.php"><span class="glyphicon glyphicon-log-in"> LOGIN</span></a></li>
+                <li><a href="author_login.php"><span class="glyphicon glyphicon-log-in"> LOGIN</span></a></li>
                 
                 <li><a href="registration.php"><span class="glyphicon glyphicon-user"> SIGN UP</span></a></li>
               </ul>

@@ -105,7 +105,7 @@
 		<input class="form-control" type="text" name="pt_email" value="<?php echo $email; ?>">
 
 		<label><h4><b>Update Password</b></h4></label>
-		<input class="form-control" type="text" name="pt_password" value="<?php echo $password; ?>">
+		<input class="form-control" type="password" name="pt_password" value="<?php echo $password; ?>">
 
 		<br>
 		<div style="padding-left: 100px;">

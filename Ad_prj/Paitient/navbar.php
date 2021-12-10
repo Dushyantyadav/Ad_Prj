@@ -27,7 +27,7 @@
             <li><a href="books.php">SERVICES</a></li>
             <li><a href="feedback.php">FEEDBACK</a></li>
 			<li><a href="rooms.php">ROOMS</a></li>
-			<li><a href="topics.php">LATEST NEWS</a></li>			
+			<li><a href="https://www.worldometers.info/coronavirus/">LATEST NEWS</a></li>			
           </ul>
           <?php
             if(isset($_SESSION['login_user']))

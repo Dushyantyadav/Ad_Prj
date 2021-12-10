@@ -160,7 +160,7 @@
 				echo "<th>"; echo "Total cost";  echo "</th>";
 				echo "<th>"; echo "Insurance Amount";  echo "</th>";
 				echo "<th>"; echo "Net Bill for Patient";  echo "</th>";
-				echo "<th>"; echo "Registration number";  echo "</th>";
+				echo "<th>"; echo "Invoice Status";  echo "</th>";
 				
 			echo "</tr>";	
 
@@ -176,9 +176,9 @@
 				echo "<td>"; echo $row['total_cost']; echo "</td>";
 				echo "<td>"; echo $row['bill_ins']; echo "</td>";
 				echo "<td>"; echo $row['cost_pat']; echo "</td>";
-				echo "<td>"; echo $row['reg_no']; echo "</td>";
+				echo "<td>"; echo $row['inv_status']; echo "</td>";
 				$my_inv_no = $row['inv_num'];
-				if($row['reg_no'] != "99s9"){
+				if($row['inv_status'] != "Paid"){
 					echo "<td> <button style='background-color: #6db6b9e6;' type='submit' name='submit1' 
 					onclick=\"onClickPay($my_inv_no)\"
 					class='btn btn-default'>Pay

@@ -49,7 +49,7 @@
 	<div class="wrapper">
 		<h4>If you have any suggesions or questions please comment below.</h4>
 		<form style="" action="" method="post">
-			<input class="form-control" type="text" name="comment" placeholder="Write something..."><br>	
+			<input class="form-control" type="text" name="cmt_comment" placeholder="Write something..."><br>	
 			<input class="btn btn-default" type="submit" name="submit" value="Comment" style="width: 100px; height: 35px;">		
 		</form>
 	
@@ -59,10 +59,10 @@
 		<?php
 			if(isset($_POST['submit']))
 			{
-				$sql="INSERT INTO `comments` VALUES('','$_SESSION[login_user]', '$_POST[comment]');";
+				$sql="INSERT INTO ad_feedback(cmt_name,cmt_comment) VALUES((select pt_fst_name from ad_patient where pt_email='$_SESSION[login_user]'), '$_POST[cmt_comment]');";
 				if(mysqli_query($db,$sql))
 				{
-					$q="SELECT * FROM `comments` ORDER BY `comments`.`id` DESC";
+					$q="SELECT * FROM `ad_feedback` ORDER BY `cmt_id` DESC";
 					$res=mysqli_query($db,$q);
 
 				echo "<table class='table table-bordered'>";
@@ -70,8 +70,8 @@
 					{
 
 						echo "<tr>";
-							echo "<td>"; echo $row['customer_id']; echo "</td>";
-							echo "<td>"; echo $row['comment']; echo "</td>";
+							echo "<td>"; echo $row['cmt_name']; echo "</td>";
+							echo "<td>"; echo $row['cmt_comment']; echo "</td>";
 						echo "</tr>";
 					}
 				echo "</table>";
@@ -81,18 +81,19 @@
 
 			else
 			{
-				$q="SELECT * FROM `comments` ORDER BY `comments`.`id` DESC"; 
-					$res=mysqli_query($db,$q);
+				$q="SELECT * FROM `ad_feedback` ORDER BY `cmt_comment`.`cmt_id` DESC";
+				$res=mysqli_query($db,$q);
 
-				echo "<table class='table table-bordered'>";
-					while ($row=mysqli_fetch_assoc($res)) 
-					{
-						echo "<tr>";
-							echo "<td>"; echo $row['customer_id']; echo "</td>";
-							echo "<td>"; echo $row['comment']; echo "</td>";
-						echo "</tr>";
-					}
-				echo "</table>";
+			echo "<table class='table table-bordered'>";
+				while ($row=mysqli_fetch_assoc($res)) 
+				{
+
+					echo "<tr>";
+						echo "<td>"; echo $row['cmt_name']; echo "</td>";
+						echo "<td>"; echo $row['cmt_comment']; echo "</td>";
+					echo "</tr>";
+				}
+			echo "</table>";
 			}
 		?>
 	</div>

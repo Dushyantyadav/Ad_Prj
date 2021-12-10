@@ -27,7 +27,7 @@
             <li><a href="books.php">BOOKS</a></li>
             <li><a href="feedback.php">FEEDBACK</a></li>
 			<li><a href="rooms.php">ROOMS</a></li>
-			<li><a href="topics.php">TOPICS</a></li>			
+			<li><a href="www.cnn.com">TOPICS</a></li>			
           </ul>
           <?php
             if(isset($_SESSION['login_user']))

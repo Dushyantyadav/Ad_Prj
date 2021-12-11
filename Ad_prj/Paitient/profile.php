@@ -174,5 +174,102 @@
  			?>
  		</div>
  	</div>
+ 	<div class="container">
+ 		<form action="" method="post">
+ 			<!--<button class="btn btn-default" style="float: right; width: 70px;" name="submit1">Edit</button>-->
+ 		</form>
+ 		<div class="wrapper">
+ 			<?php
+
+ 				if(isset($_POST['submit1']))
+ 				{
+ 					?>
+ 						<script type="text/javascript">
+ 							window.location="edit.php"
+ 						</script>
+ 					<?php
+ 				}
+ 				$q=mysqli_query($db,"SELECT * FROM ad_er_cnt where pt_id=(select pt_id from ad_patient where pt_email='$_SESSION[login_user]') ;");
+ 			?>
+ 			<h2 style="text-align: center;">Patient's Emergency Contact</h2>
+
+ 			<?php
+ 				$row=mysqli_fetch_assoc($q);
+
+ 			?>
+ 			<?php
+ 				echo "<b>";
+ 				echo "<table class='table table-bordered'>";
+	 				echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b>Emegency contact's Name: </b>";
+	 					echo "</td>";
+
+	 					echo "<td>";
+	 						echo $row['er_name'];
+	 					echo "</td>";
+	 				echo "</tr>";
+					
+					echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Apt/House Number: </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['er_house_no'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+					 echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Street: </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['er_street'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+					 echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> City: </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['er_city'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+					 echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Zipcode: </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['er_zipcode'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+	 				echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Phone </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['er_ph_no'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+					 echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Relation with patient </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['er_rel'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+					 
+	 				
+ 				echo "</table>";
+ 				echo "</b>";
+ 			?>
+ 		</div>
+ 	</div>
  </body>
  </html>

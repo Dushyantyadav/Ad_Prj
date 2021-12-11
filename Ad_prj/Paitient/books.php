@@ -191,7 +191,7 @@ function closeNav() {
 			/*if button is not pressed.*/
 		else
 		{
-			$res=mysqli_query($db,"SELECT * FROM `ad_treatment`;");
+			$res=mysqli_query($db,"SELECT * FROM `ad_treatment` where pt_id=(select pt_id from ad_patient where pt_email='$_SESSION[login_user]');");
 
 		echo "<table class='table table-bordered table-hover' >";
 			echo "<tr style='background-color: #6db6b9e6;'>";

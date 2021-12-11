@@ -25,7 +25,7 @@
           <ul class="nav navbar-nav">
             <li><a href="index.php">HOME</a></li>
             <li><a href="books.php">DEPARTMENTS</a></li>
-            <li><a href="feedback.php">FEEDBACK</a></li>
+            <li><a href="addtreatment.php">NEW TREATMENT</a></li>
             <li><a href="diseases.php">DISEASES</a></li>
 			<li><a href="addpatient.php">ADD PATIENT</a></li>
 			<li><a href="www.facebook.com">LATEST NEWS</a></li>			

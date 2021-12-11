@@ -20,13 +20,13 @@
 	    <nav class="navbar navbar-inverse" style="background-color: black;">
       <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand active">READ THINK AND LEARN LIBRARY</a>
+            <a class="navbar-brand active">We Offer Wellness</a>
           </div>
           <ul class="nav navbar-nav">
             <li><a href="index.php">HOME</a></li>
             <li><a href="books.php">BOOKS</a></li>
             <li><a href="feedback.php">FEEDBACK</a></li>
-			<li><a href="rooms.php">ROOMS</a></li>
+			<li><a href="diseases.php">DISEASES</a></li>
 			<li><a href="www.cnn.com">TOPICS</a></li>			
           </ul>
           <?php

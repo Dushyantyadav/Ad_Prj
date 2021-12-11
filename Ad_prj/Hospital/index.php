@@ -5,7 +5,7 @@
 <html>
 <head>
 	<title>
-		Online Library Management System
+	We Offer Wellness
 	</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<meta charset="utf-8">
@@ -32,7 +32,7 @@
 		<header>
 		<div class="logo">
 			<img src="images/hi.png">
-			<h1 style="color: white;">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp We Offer Wellness Hospital</h1>
+			<h1 style="color: white;">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp We Offer Wellness</h1>
 		</div>
 		
 
@@ -43,7 +43,7 @@
 				<nav>
 					<ul>
 						<li><a href="index.php">HOME</a></li>
-						<li><a href="books.php">BOOKS</a></li>
+						<li><a href="books.php">DEPARTMENTS</a></li>
 
 						<li><a href="feedback.php">FEEDBACK</a></li>
 						<li><a href="topics.php">TOPICS</a></li>
@@ -60,7 +60,7 @@
 						<nav>
 							<ul>
 								<li><a href="index.php">HOME</a></li>
-								<li><a href="books.php">SERVICES</a></li>
+								<li><a href="books.php">DEPARTMENTS</a></li>
 								<li><a href="author_login.php">LOGIN</a></li>
 								<li><a href="registration.php">SIGN-UP</a></li>
 								<li><a href="feedback.php">FEEDBACK</a></li>

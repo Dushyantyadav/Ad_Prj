@@ -7,7 +7,7 @@
 <html>
 <head>
 
-  <title>Customer Registration</title>
+  <title>Patient Registration</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

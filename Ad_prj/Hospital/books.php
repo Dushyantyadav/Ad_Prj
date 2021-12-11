@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Books</title>
+	<title>Department List</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<style type="text/css">
@@ -106,7 +106,7 @@ function closeNav() {
 	<div class="srch">
 		<form class="navbar-form" method="post" name="form1">
 			
-				<input class="form-control" type="text" name="search" placeholder="search books.." required="">
+				<input class="form-control" type="text" name="search" placeholder="Search Dept.." required="">
 				<button style="background-color: #6db6b9e6;" type="submit" name="submit" class="btn btn-default">
 					<span class="glyphicon glyphicon-search"></span>
 				</button>
@@ -114,12 +114,12 @@ function closeNav() {
 	</div>
 
 
-	<h2>List Of Books</h2>
+	<h2>Department List</h2>
 	<?php
 
 		if(isset($_POST['submit']))
 		{
-			$q=mysqli_query($db,"SELECT * from books where bname like '%$_POST[search]%' ");
+			$q=mysqli_query($db,"SELECT * from ad_dept where dept_name like '%$_POST[search]%' ");
 
 			if(mysqli_num_rows($q)==0)
 			{
@@ -131,18 +131,20 @@ function closeNav() {
 			echo "<tr style='background-color: #6db6b9e6;'>";
 				//Table header
 				echo "<th>"; echo "ID";	echo "</th>";
-				echo "<th>"; echo "Book-Name";  echo "</th>";
-				echo "<th>"; echo "Charge Per Day";  echo "</th>";
-				echo "<th>"; echo "Extra Charge";  echo "</th>";
+				echo "<th>"; echo "Dept. Name";  echo "</th>";
+				echo "<th>"; echo "Phone Number";  echo "</th>";
+				echo "<th>"; echo "Floor";  echo "</th>";
+				echo "<th>"; echo "Building";  echo "</th>";
 			echo "</tr>";	
 
 			while($row=mysqli_fetch_assoc($q))
 			{
 				echo "<tr>";
-				echo "<td>"; echo $row['book_id']; echo "</td>";
-				echo "<td>"; echo $row['bname']; echo "</td>";
-				echo "<td>"; echo $row['b_crg']; echo "</td>";
-				echo "<td>"; echo $row['ex_crg']; echo "</td>";
+				echo "<td>"; echo $row['dept_id']; echo "</td>";
+				echo "<td>"; echo $row['dept_name']; echo "</td>";
+				echo "<td>"; echo $row['dept_ph_no']; echo "</td>";
+				echo "<td>"; echo $row['dept_floor']; echo "</td>";
+				echo "<td>"; echo $row['dept_bld']; echo "</td>";
 
 				echo "</tr>";
 			}
@@ -152,25 +154,26 @@ function closeNav() {
 			/*if button is not pressed.*/
 		else
 		{
-			$res=mysqli_query($db,"SELECT * FROM `books` ORDER BY `books`.`bname` ASC;");
+			$res=mysqli_query($db,"SELECT * FROM `ad_dept` ORDER BY `ad_dept`.`dept_name` ASC;");
 
 		echo "<table class='table table-bordered table-hover' >";
 			echo "<tr style='background-color: #6db6b9e6;'>";
 				//Table header
 				echo "<th>"; echo "ID";	echo "</th>";
-				echo "<th>"; echo "Book-Name";  echo "</th>";
-				echo "<th>"; echo "Charge Per Day";  echo "</th>";
-				echo "<th>"; echo "Extra Charge";  echo "</th>";
+				echo "<th>"; echo "Dept. Name";  echo "</th>";
+				echo "<th>"; echo "Phone Number";  echo "</th>";
+				echo "<th>"; echo "Floor";  echo "</th>";
+				echo "<th>"; echo "Building";  echo "</th>";
 			echo "</tr>";	
 
 			while($row=mysqli_fetch_assoc($res))
 			{
 				echo "<tr>";
-				echo "<td>"; echo $row['book_id']; echo "</td>";
-				echo "<td>"; echo $row['bname']; echo "</td>";
-				echo "<td>"; echo $row['b_crg']; echo "</td>";
-				echo "<td>"; echo $row['ex_crg']; echo "</td>";
-
+				echo "<td>"; echo $row['dept_id']; echo "</td>";
+				echo "<td>"; echo $row['dept_name']; echo "</td>";
+				echo "<td>"; echo $row['dept_ph_no']; echo "</td>";
+				echo "<td>"; echo $row['dept_floor']; echo "</td>";
+				echo "<td>"; echo $row['dept_bld']; echo "</td>";
 				echo "</tr>";
 			}
 		echo "</table>";
@@ -183,7 +186,7 @@ function closeNav() {
 				//mysqli_query($db,)
 				//mysqli_query($db,"INSERT INTO rental(ren_stat,br_date,e_ret_d,cust_id) values('Borrowed',sysdate,sysdate+15,'$_SESSION['login_user']');");
 				//mysqli_query($db,"INSERT INTO rental(ren_stat,br_date,e_ret_d,cust_id,copy_id) values ('Borrowed',sysdate(),sysdate()+15,'$_SESSION['login_user']',(select copy_id from copies where book_id='$_POST[search]'));");
-				$_SESSION['book_id'] = $_POST['book_id'];
+				$_SESSION['dept_id'] = $_POST['dept_id'];
 				var_dump($_POST);
 				?>
 					<script type="text/javascript">

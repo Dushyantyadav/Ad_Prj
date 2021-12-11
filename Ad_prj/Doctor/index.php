@@ -5,7 +5,7 @@
 <html>
 <head>
 	<title>
-		Online Library Management System
+		We Offer Wellness
 	</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<meta charset="utf-8">
@@ -32,7 +32,7 @@
 		<header>
 		<div class="logo">
 			<img src="images/hi.png">
-			<h1 style="color: white;">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp We Offer Wellness Hospital</h1>
+			<h1 style="color: white;">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp We Offer Wellness</h1>
 		</div>
 		
 

@@ -82,7 +82,17 @@
           <?php
           echo "New records created successfully";
 
-          }else{
+          }
+          if($result && $_POST['d_type']=='CON'){
+            ?>
+            <script type="text/javascript">
+              alert("Saved Successfully.");
+              window.location="condoc.php";
+            </script>
+          <?php
+          echo "New records created successfully";
+          }
+          else{
             echo "Error!";
           }
 

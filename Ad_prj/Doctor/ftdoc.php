@@ -29,21 +29,15 @@
   <div class="reg_img">
 
     <div class="box2">
-        <h1 style="text-align: center; font-size: 35px;font-family: Lucida Console;"> Doctor Registration </h1>
-        <h1 style="text-align: center; font-size: 25px;">Doctor Registration Form</h1>
+        <h1 style="text-align: center; font-size: 35px;font-family: Lucida Console;"> Full Time Doctor Registration</h1>
+        <h1 style="text-align: center; font-size: 25px;">Enter the details</h1>
 
       <form name="Registration" action="" method="post">
         
         <div class="login">
           
-          <input class="form-control" type="text" name="d_fst_name" placeholder="Doctor's First Name" required=""> <br>
-          <input class="form-control" type="text" name="d_lst_name" placeholder="Doctor's Last Name" required=""> <br>
-          <input class="form-control" type="text" name="d_ofc_no" placeholder="Doctor's office number" required=""> <br>
-          <input class="form-control" type="text" name="d_pr_no" placeholder="Doctor's personal number" required=""><br>
-          <input class="form-control" type="text" name="d_speciality" placeholder="Speciality" required=""><br>
-          <input class="form-control" type="text" name="d_type" placeholder="Doctor type" required=""><br>
-          <input class="form-control" type="text" name="d_email" placeholder="Email" required=""><br>
-          <input class="form-control" type="password" name="d_password" placeholder="Password" required=""><br>
+          <input class="form-control" type="text" name="hr_dt" placeholder="Hire Date" required=""> <br>
+          <input class="form-control" type="text" name="yr_comp" placeholder="Yearly compensation" required=""> <br>
 
           <input class="btn btn-default" type="submit" name="submit" value="Sign Up" style="color: black; width: 70px; height: 30px"> </div>
       </form>
@@ -58,9 +52,10 @@
       {
         $count=0;
 
-        $sql="SELECT d_id from `ad_doctor`";
+        $sql="SELECT d_id from `ad_ft_doc`";
         $res=mysqli_query($db,$sql);
-
+        $sql22="SELECT d_id from ad_doctor ORDER BY d_id DESC LIMIT 1";
+        $res22=mysqli_query($db,$sql22);
         while($row=mysqli_fetch_assoc($res))
         {
           if($row['d_id']==$_POST['d_id'])
@@ -70,16 +65,10 @@
         }
         if($count==0)
         {
-          $stmt = $db->prepare("INSERT INTO ad_doctor ( d_fst_name, d_lst_name, d_ofc_no, d_pr_no, d_speciality, d_type, d_email, d_password) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)");
-          $stmt->bind_param("ssiissss", $_POST['d_fst_name'], $_POST['d_lst_name'], $_POST['d_ofc_no'], $_POST['d_pr_no'], $_POST['d_speciality'], $_POST['d_type'], $_POST['d_email'], $_POST['d_password']);
+          $stmt = $db->prepare("INSERT INTO ad_ft_doc (d_id, hr_dt, yr_comp) VALUES (?, ?, ?)");
+          $stmt->bind_param("isi",$res22, $_POST['hr_dt'], $_POST['yr_comp']);
           $result = $stmt->execute();
-          if($result && $_POST['d_type']=='FT'){
-            ?>
-            <script type="text/javascript">
-              alert("Saved Successfully.");
-              window.location="ftdoc.php";
-            </script>
-          <?php
+          if($result){
           echo "New records created successfully";
 
           }else{

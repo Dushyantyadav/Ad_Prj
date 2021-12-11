@@ -20,13 +20,14 @@
 	    <nav class="navbar navbar-inverse" style="background-color: black;">
       <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand active">We offer wellness hospital</a>
+            <a class="navbar-brand active">We Offer Wellness</a>
           </div>
           <ul class="nav navbar-nav">
             <li><a href="index.php">HOME</a></li>
-            <li><a href="books.php">SERVICES</a></li>
+            <li><a href="books.php">TREATMENTS</a></li>
             <li><a href="feedback.php">FEEDBACK</a></li>
-			<li><a href="rooms.php">ROOMS</a></li>
+			<li><a href="diseases.php">DISEASES</a></li>
+      <li><a href="emer.php">EMERGENCY CONTACT</a></li>
 			<li><a href="https://www.worldometers.info/coronavirus/">LATEST NEWS</a></li>			
           </ul>
           <?php

@@ -34,8 +34,8 @@
                   
                   <li><a href="profile.php">PROFILE</a></li>
                 
-                  <li><a href="student.php">
-                    STUDENT-INFORMATION
+                  <li><a href="patientdetails.php">
+                    PATIENT INFO
                   </a></li>
                   <li><a href="fine.php">PAYMENTS</a></li>
                 </ul>

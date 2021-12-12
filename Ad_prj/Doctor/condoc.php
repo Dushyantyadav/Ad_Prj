@@ -60,17 +60,11 @@
         $res=mysqli_query($db,$sql);
         $sql22="SELECT d_id from ad_doctor ORDER BY d_id DESC LIMIT 1";
         $res22=mysqli_query($db,$sql22);
-        while($row=mysqli_fetch_assoc($res))
-        {
-          if($row['d_id']==$_POST['d_id'])
-          {
-            $count=$count+1;
-          }
-        }
+
         if($count==0)
         {
           $stmt = $db->prepare("INSERT INTO ad_con_doc (d_id, cont_date, cont_num, cont_wk_rate,min_wk_hr,ovt_rate,ovt_hr) VALUES (?, ?, ?, ?, ?, ?, ?)");
-          $stmt->bind_param("isiiiii",$sql22, $_POST['cont_date'], $_POST['cont_num'], $_POST['cont_wk_rate'], $_POST['min_wk_hr'], $_POST['ovt_rate'], $_POST['ovt_hr']);
+          $stmt->bind_param("isiiiii",$res22, $_POST['cont_date'], $_POST['cont_num'], $_POST['cont_wk_rate'], $_POST['min_wk_hr'], $_POST['ovt_rate'], $_POST['ovt_hr']);
           $result = $stmt->execute();
           if($result){
           echo "New records created successfully";

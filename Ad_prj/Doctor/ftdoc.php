@@ -56,12 +56,18 @@
         $res=mysqli_query($db,$sql);
         $sql22="SELECT d_id from ad_doctor ORDER BY d_id DESC LIMIT 1";
         $res22=mysqli_query($db,$sql22);
+        #echo gettype($res22)."<br>";
+        #$res22=(int)$res22;
+        #echo ($res22)."<br>";
+        $r=mysqli_fetch_assoc($res22);
+        $newvar1 = $r['d_id'];
         
         if($count==0)
         {
           $stmt = $db->prepare("INSERT INTO ad_ft_doc (d_id, hr_dt, yr_comp) VALUES (?, ?, ?)");
-          $stmt->bind_param("isi",$res22, $_POST['hr_dt'], $_POST['yr_comp']);
+          $stmt->bind_param("isi",$newvar1, $_POST['hr_dt'], $_POST['yr_comp']);
           $result = $stmt->execute();
+          echo $result."<br>";
           if($result){
           echo "New records created successfully";
 

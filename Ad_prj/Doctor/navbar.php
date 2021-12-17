@@ -24,10 +24,10 @@
           </div>
           <ul class="nav navbar-nav">
             <li><a href="index.php">HOME</a></li>
-            <li><a href="books.php">BOOKS</a></li>
-            <li><a href="feedback.php">FEEDBACK</a></li>
+
+
 			<li><a href="diseases.php">DISEASES</a></li>
-			<li><a href="www.cnn.com">TOPICS</a></li>			
+			<li><a href="https://www.worldometers.info/coronavirus/">LATEST NEWS</a></li>		
           </ul>
           <?php
             if(isset($_SESSION['login_user']))
@@ -36,6 +36,7 @@
           ?>
                 <ul class="nav navbar-nav">
                   <li><a href="profile.php">PROFILE</a></li>
+                  <li><a href="mypatient.php">MY PATIENTS</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

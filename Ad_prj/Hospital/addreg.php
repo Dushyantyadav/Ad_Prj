@@ -29,22 +29,18 @@
   <div class="reg_img">
 
     <div class="box2">
-        <h1 style="text-align: center; font-size: 35px;font-family: Lucida Console;"> Add treatment</h1>
-        <h1 style="text-align: center; font-size: 25px;">Treatment entry form</h1>
+        <h1 style="text-align: center; font-size: 35px;font-family: Lucida Console;"> Create new registration </h1>
+        <h1 style="text-align: center; font-size: 25px;">Below are the details</h1>
 
       <form name="Registration" action="" method="post">
         
         <div class="login">
           
-          <input class="form-control" type="text" name="trt_date" placeholder="Treatment date" required=""> <br>
-          <input class="form-control" type="text" name="trt_type" placeholder="Treatment type" required=""> <br>
-          <input class="form-control" type="text" name="trt_rst_st" placeholder="Treatment status" required=""> <br>
-          <input class="form-control" type="text" name="trt_desc" placeholder="Treatment description" required=""><br>
-          <input class="form-control" type="text" name="pt_id" placeholder="Patient to be treated" required=""><br>
-          <input class="form-control" type="text" name="d_id" placeholder="Doctor to be assigned" required=""><br>
-          <input class="form-control" type="text" name="icd" placeholder="ICD number" required=""><br>
+          <input class="form-control" type="text" name="reg_no" placeholder="Registration number" required=""> <br>
+          <input class="form-control" type="text" name="pt_id" placeholder="Patient ID" required=""> <br>
           
-          <input class="btn btn-default" type="submit" name="submit" value="Add treatment " style="color: black; width: 110px; height: 30px"> </div>
+          
+          <input class="btn btn-default" type="submit" name="submit" value="Submit" style="color: black; width: 70px; height: 30px"> </div>
       </form>
      
     </div>
@@ -56,25 +52,24 @@
       if(isset($_POST['submit']))
       {
         $count=0;
-        ini_set('display_errors', 'Off');
 
-        $sql="SELECT trt_id from `ad_treatment`";
+        $sql="SELECT reg_no from `ad_reg`";
         $res=mysqli_query($db,$sql);
 
         while($row=mysqli_fetch_assoc($res))
         {
-          if($row['trt_id']==$_POST['trt_id'])
+          if($row['reg_no']==$_POST['reg_no'])
           {
             $count=$count+1;
           }
         }
         if($count==0)
         {
-          $stmt = $db->prepare("INSERT INTO ad_treatment ( trt_date, trt_type, trt_rst_st, trt_desc, pt_id, d_id, icd) VALUES ( ?, ?, ?, ?, ?, ?, ?)");
-          $stmt->bind_param("ssssiii", $_POST['trt_date'], $_POST['trt_type'], $_POST['trt_rst_st'], $_POST['trt_desc'], $_POST['pt_id'], $_POST['d_id'], $_POST['icd']);
+          $stmt = $db->prepare("INSERT INTO ad_reg ( reg_no, pt_id) VALUES ( ?, ?)");
+          $stmt->bind_param("ii", $_POST['reg_no'], $_POST['pt_id']);
           $result = $stmt->execute();
           if($result){
-          echo "New records created successfully";
+          echo "Thank You";
           }else{
             echo "Error!";
           }
@@ -94,7 +89,7 @@
 
           ?>
             <script type="text/javascript">
-              alert("The username already exist.");
+              alert("The registation already exist.");
             </script>
           <?php
 

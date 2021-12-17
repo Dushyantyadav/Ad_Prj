@@ -19,13 +19,13 @@
 	    <nav class="navbar navbar-inverse">
       <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand active">READ THINK AND LEARN LIBRARY</a>
+            <a class="navbar-brand active">We Offer Wellness Hospital</a>
           </div>
           <ul class="nav navbar-nav">
             <li><a href="index.php">HOME</a></li>
-            <li><a href="books.php">BOOKS</a></li>
+
             <li><a href="diseases.php">DISEASES</a></li>
-            <li><a href="feedback.php">FEEDBACK</a></li>
+
           </ul>
           <?php
             if(isset($_SESSION['login_user']))
@@ -37,7 +37,7 @@
                   <li><a href="patientdetails.php">
                     PATIENT INFO
                   </a></li>
-                  <li><a href="fine.php">PAYMENTS</a></li>
+
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">

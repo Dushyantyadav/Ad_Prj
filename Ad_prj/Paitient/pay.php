@@ -80,7 +80,7 @@
 
 </head>
 <body>
-<!--_________________sidenav_______________-->
+<!--_________________sidenav_______________
 	
 	<div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -108,7 +108,7 @@
   
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; SHOW MORE</span>
 <div class="container">
-
+              -->
 
 	<script>
 	function openNav() {

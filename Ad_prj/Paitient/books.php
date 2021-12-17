@@ -82,7 +82,7 @@
 
 </head>
 <body>
-	<!--_________________sidenav_______________-->
+	<!--_________________sidenav_______________
 	
 	<div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -105,7 +105,7 @@
   <div class="h"> <a href="request.php">Book Request</a></div>
   <div class="h"><a href="invoice.php">Invoice Details</a></div>
 </div>
-
+			
 <div id="main">
   
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; SHOW MORE</span>
@@ -123,6 +123,7 @@ function closeNav() {
   document.getElementById("main").style.marginLeft= "0";
   document.body.style.backgroundColor = "white";
 }
+-->
 </script>
 	<!--___________________search bar________________________-->
 
@@ -148,6 +149,7 @@ function closeNav() {
 	<h2>List of Treatments</h2>
 	<?php
 
+		ini_set('display_errors', 'Off');
 		if(isset($_POST['submit']))
 		{
 			$q=mysqli_query($db,"SELECT * from ad_treatment where trt_id like '%$_POST[search]%' ");
@@ -241,7 +243,7 @@ function closeNav() {
 			{
 				?>
 					<script type="text/javascript">
-						alert("You must login to Request a book");
+						alert("You must login to Generate invoice");
 					</script>
 				<?php
 			}

@@ -29,7 +29,7 @@
   <div class="log_img">
    <br>
     <div class="box1">
-        <h1 style="text-align: center; font-size: 35px;font-family: Lucida Console;">Library Management System</h1>
+        <h1 style="text-align: center; font-size: 35px;font-family: Lucida Console;">We offer wellness</h1>
         <h1 style="text-align: center; font-size: 25px;">User Login Form</h1><br>
       <form  name="login" action="" method="post">
         

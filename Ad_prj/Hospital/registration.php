@@ -60,6 +60,7 @@
       if(isset($_POST['submit']))
       {
         $count=0;
+        ini_set('display_errors', 'Off');
 
         $sql="SELECT hsp_id from `ad_hospital`";
         $res=mysqli_query($db,$sql);

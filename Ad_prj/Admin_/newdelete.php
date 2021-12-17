@@ -23,7 +23,7 @@
 
 	</style>
 </head>
-<body style="background-color: #004528;">
+<body style="background-color: green;">
 
 	<h2 style="text-align: center;color: #fff;">Are you sure you want to delete record for the mentioned patient?</h2>
 	<?php
@@ -53,22 +53,31 @@
 	  document.body.style.backgroundColor = "white";
 	}
 	function onClickPay(my_inv_no) {
-		window.location = `/newedit.php?qq=${my_inv_no}`;
+		window.location = `/newdelete.php?qq=${my_inv_no}`;
 	}
 	
 	</script>
 	</div><br><br>
 	
-	<div style="padding-left: 650px;">
+	<div class="form1">
+		<form action="" method="post" enctype="multipart/form-data">
+		<br>
+		<div style="padding-left: 100px;">
 			<button class="btn btn-default" type="submit" name="submit11">Delete</button></div>
-	</div>
+	</form>
+</div>
 	<?php
 
 		if(isset($_POST['submit11']))
 		{
 			$sql111= "DELETE FROM ad_patient WHERE pt_id=$myhe;";
+			echo $sql111."<br>";
+			$myvar2=mysqli_query($db,$sql111);
+			$my=mysqli_affected_rows($db);
+			$my1=mysqli_error($db);
+			echo $my1."<br>";
 
-			if(mysqli_query($db,$sql111))
+			if($myvar2)
 			{
 				?>
 					<script type="text/javascript">
@@ -81,4 +90,3 @@
  	?>
 </body>
 </html>
-

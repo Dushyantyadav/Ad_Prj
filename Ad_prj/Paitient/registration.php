@@ -67,6 +67,7 @@
 
         $sql="SELECT pt_id from `ad_patient`";
         $res=mysqli_query($db,$sql);
+        ini_set('display_errors', 'Off');
 
         while($row=mysqli_fetch_assoc($res))
         {

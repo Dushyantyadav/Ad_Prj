@@ -46,8 +46,7 @@
 						<li><a href="books.php">DEPARTMENTS</a></li>
 
 						<li><a href="feedback.php">FEEDBACK</a></li>
-						<li><a href="topics.php">TOPICS</a></li>
-						<li><a href="rooms.php">ROOMS</a></li>
+
 						<li><a href="profile.php">PROFILE</a></li>
 						<li><a href="logout.php">LOGOUT</a></li>						
 					</ul>
